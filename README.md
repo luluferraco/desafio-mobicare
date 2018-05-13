@@ -8,6 +8,7 @@ Feito por Lucas Ferraço
 
 ###### Execução
 Para executar o projeto, basta:
+
 * Baixar o ZIP ou clonar o repositório no seu Mac;
 * Caso baixe o ZIP, descomprima o arquivo;
 * Abrir o arquivo Viajabessa.xcodeproj que está na pasta "Viajabessa" com o XCode 9;
@@ -22,14 +23,14 @@ da Apple paga** e registrá-la no time do projeto (Targets > Viajabessa > Genera
 * [Apiary link](https://viajabessa62.docs.apiary.io/#)
 
 ###### Requisitos
-* O app deve exibir uma lista com os pacotes de viagem, com título, informação de valor e imagem;
-* Ao selecionar um item da lista, deve ser exibida uma tela de detalhes contendo nome do pacote, valor, foto da localização, descrição do pacote e um botão de comprar;
+* O app deve exibir uma lista com os pacotes de viagem, com título, informação de valor e imagem;
+* Ao selecionar um item da lista, deve ser exibida uma tela de detalhes contendo nome do pacote, valor, foto da localização, descrição do pacote e um botão de comprar;
 * Gerencie seus cartões de crédito, adicionando em "+" em seu perfil e excluindo em sua página de detalhes;
 * As seguintes informações devem ser enviadas a cada request para fins de relatórios de marketing:
   * Versão do sistema;
   * Marca do aparelho;
   * Modelo do aparelho;
-* O app deve suportar telas menores e suportar no mínimo a versão 8 do iOS.
+* O app deve suportar telas menores e suportar no mínimo a versão 8 do iOS.
 
 ###### Funcionalidades
 * Gerencie seus cartões de crédito, adicionando em "+" em seu perfil e excluindo em sua página de detalhes;
