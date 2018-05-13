@@ -41,7 +41,7 @@ da Apple paga** e registrá-la no time do projeto (Targets > Viajabessa > Genera
 ```
 MIT License
 
-Copyright (c) 2016 Stone Pagamentos
+Copyright (c) 2018 Lucas Ferraço
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
