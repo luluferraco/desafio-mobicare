@@ -8,33 +8,33 @@ Feito por Lucas Ferraço
 
 ###### Execução
 Para executar o projeto, basta:
-+ Baixar o ZIP ou clonar o repositório no seu Mac;
-+ Caso baixe o ZIP, descomprima o arquivo;
-+ Abrir o arquivo Viajabessa.xcodeproj que está na pasta "Viajabessa" com o XCode 9;
-+ Escolher o simulador que preferir e (recomendado para iPhones, mas também funciona em iPads);
-+ Rodar o projeto (CMD+R).
+* Baixar o ZIP ou clonar o repositório no seu Mac;
+* Caso baixe o ZIP, descomprima o arquivo;
+* Abrir o arquivo Viajabessa.xcodeproj que está na pasta "Viajabessa" com o XCode 9;
+* Escolher o simulador que preferir e (recomendado para iPhones, mas também funciona em iPads);
+* Rodar o projeto (CMD+R).
 
 Observação: também é possível executar o projeto em um dispositivo físico, basta conectá-lo ao seu Mac,
 escolher o dispositivo no Xcode e rodar nele, mas para isso **é necessário ter uma conta de desenvolvedor
 da Apple paga** e registrá-la no time do projeto (Targets > Viajabessa > General > Signing > Team).
 
 ###### Serviço Mock
-+ [Apiary link](https://viajabessa62.docs.apiary.io/#)
+* [Apiary link](https://viajabessa62.docs.apiary.io/#)
 
 ###### Requisitos
-+ O app deve exibir uma lista com os pacotes de viagem, com título, informação de valor e imagem;
-+ Ao selecionar um item da lista, deve ser exibida uma tela de detalhes contendo nome do pacote, valor, foto da localização, descrição do pacote e um botão de comprar;
-+ Gerencie seus cartões de crédito, adicionando em "+" em seu perfil e excluindo em sua página de detalhes;
-+ As seguintes informações devem ser enviadas a cada request para fins de relatórios de marketing:
-  + Versão do sistema;
-  + Marca do aparelho;
-  + Modelo do aparelho;
-+ O app deve suportar telas menores e suportar no mínimo a versão 8 do iOS.
+* O app deve exibir uma lista com os pacotes de viagem, com título, informação de valor e imagem;
+* Ao selecionar um item da lista, deve ser exibida uma tela de detalhes contendo nome do pacote, valor, foto da localização, descrição do pacote e um botão de comprar;
+* Gerencie seus cartões de crédito, adicionando em "+" em seu perfil e excluindo em sua página de detalhes;
+* As seguintes informações devem ser enviadas a cada request para fins de relatórios de marketing:
+  * Versão do sistema;
+  * Marca do aparelho;
+  * Modelo do aparelho;
+* O app deve suportar telas menores e suportar no mínimo a versão 8 do iOS.
 
 ###### Funcionalidades
-+ Gerencie seus cartões de crédito, adicionando em "+" em seu perfil e excluindo em sua página de detalhes;
-+ Veja seu histórico de transações no seu perfil;
-+ Veja detalhes dos seus cartões e transações clicando em cada um deles no seu perfil.
+* Gerencie seus cartões de crédito, adicionando em "+" em seu perfil e excluindo em sua página de detalhes;
+* Veja seu histórico de transações no seu perfil;
+* Veja detalhes dos seus cartões e transações clicando em cada um deles no seu perfil.
 
 ---
 #### LICENSE
