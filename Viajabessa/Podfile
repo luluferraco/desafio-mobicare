@@ -7,5 +7,6 @@ target 'Viajabessa' do
 
   # Pods for Viajabessa
   pod "ReachabilitySwift", '~> 4.1.0'
+  pod "PromiseKit/CorePromise", "~> 6.0"
 
 end

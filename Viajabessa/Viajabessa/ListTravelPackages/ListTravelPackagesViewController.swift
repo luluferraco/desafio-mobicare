@@ -62,22 +62,40 @@ class ListTravelPackagesViewController: UITableViewController, ListTravelPackage
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		getTravelPackages()
+		
+		self.actIndicator = CustomActIndicator(frame: self.view.bounds)
+		
+		self.getTravelPackages()
 	}
 	
 	// MARK: List Travel Packages
 	
 	private var travelPackages: [ListTravelPackages.PackageInfo]! = []
+	private var actIndicator: CustomActIndicator!
 	
 	func getTravelPackages() {
+		self.actIndicator.show(on: self.view)
+		
 		let request = ListTravelPackages.ListTravelPackages.Request()
 		interactor?.getAllTravelPackages(request: request)
 	}
 	
 	func displayListOfPackages(viewModel: ListTravelPackages.ListTravelPackages.ViewModel) {
+		self.actIndicator.hide()
+		
 		if let packagesInfo = viewModel.packagesInfo {
 			self.travelPackages = packagesInfo
 			self.tableView.reloadData()
+		} else if let message = viewModel.errorMessage {
+			let alert = UIAlertController(title: "Ops", message: message, preferredStyle: .alert)
+			alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+			
+			self.present(alert, animated: true, completion: nil)
+		} else {
+			// Show no packages label
+			let noPacksLabel = UILabel(frame: self.view.bounds)
+			noPacksLabel.text = "Ocorreu um erro inesperado, desculpe pelo transtorno."
+			self.view.addSubview(noPacksLabel)
 		}
 	}
 	

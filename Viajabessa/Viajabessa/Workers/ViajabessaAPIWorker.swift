@@ -12,6 +12,7 @@
 
 import Foundation
 import Reachability
+import PromiseKit
 
 enum ViajabessaAPIError: Error {
 	case NoConnection
@@ -117,15 +118,15 @@ class ViajabessaAPIWorker {
 		}
 	}
 	
+	private var imagePromises: [Promise<(travelPackage: TravelPackage, image: UIImage)>]!
+	
 	private func fetchTravelPackages(_ completion: @escaping ([TravelPackage]?, ViajabessaAPIError?) -> Void) {
 		if let packageEndPoint = self.endPoints?.packages {
 			self.httpRequestsWorker.getHTTP(at: self.apiURLString + packageEndPoint) { (travelPackages: [TravelPackage]?, error) in
 				if let travelPackages = travelPackages {
-					travelPackages.forEach({ (package) in
-						self.downloadImage(for: package)
+					self.downloadAllImages(for: travelPackages, { (packagesWithImages) in
+						completion(travelPackages, nil)
 					})
-					
-					completion(travelPackages, nil)
 				} else if let error = error {
 					completion(nil, self.getVAError(from: error))
 				} else {
@@ -137,12 +138,36 @@ class ViajabessaAPIWorker {
 		}
 	}
 	
-	private func downloadImage(for package: TravelPackage) {
-		self.httpRequestsWorker.getHTTP(at: package.imageURLString) { (data, _) in
-			if let imageData = data, let image = UIImage(data: imageData) {
-				package.image = image
+	private func downloadAllImages(for travelPackages: [TravelPackage], _ completion: @escaping ([TravelPackage]) -> Void) {
+		self.imagePromises = travelPackages.map({ (package) -> Promise<(travelPackage: TravelPackage, image: UIImage)> in
+			return Promise<(travelPackage: TravelPackage, image: UIImage)> { imagePromise in
+				self.httpRequestsWorker.getHTTP(at: package.imageURLString) { (data, error) in
+					if let imageData = data, let image = UIImage(data: imageData) {
+						package.image = image
+						imagePromise.resolve((travelPackage: package, image: image), nil)
+					} else if let error = error {
+						imagePromise.reject(error)
+					} else {
+						imagePromise.reject(ViajabessaAPIError.Unknown)
+					}
+				}
 			}
-		}
+		})
+		
+		_ = when(resolved: self.imagePromises).done({ results in
+			for result in results {
+				switch result {
+				case .fulfilled(let travelPackage, let image):
+					travelPackage.image = image
+				case .rejected(_):
+					break
+				}
+			}
+		}).done({ _ in
+			DispatchQueue.main.async {
+				completion(travelPackages)
+			}
+		})
 	}
 	
 	public func buyPackage(with transaction: Transaction, _ completion: @escaping (ViajabessaAPIError?) -> Void) {
