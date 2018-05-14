@@ -29,8 +29,8 @@ class ViajabessaAPIWorker {
 		let packages: String
 		
 		private enum CodingKeys: String, CodingKey {
-			case transactions 	= "trasacoes"
-			case packages 		= "pacotes"
+			case transactions 	= "transacoes_url"
+			case packages 		= "pacotes_url"
 		}
 		
 		init(from decoder: Decoder) throws {
@@ -138,8 +138,8 @@ class ViajabessaAPIWorker {
 	}
 	
 	private func downloadImage(for package: TravelPackage) {
-		self.httpRequestsWorker.getHTTP(at: package.imageURLString) { (imageData: Data?, error) in
-			if let imageData = imageData, let image = UIImage(data: imageData) {
+		self.httpRequestsWorker.getHTTP(at: package.imageURLString) { (data, _) in
+			if let imageData = data, let image = UIImage(data: imageData) {
 				package.image = image
 			}
 		}

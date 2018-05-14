@@ -13,16 +13,46 @@
 import UIKit
 
 protocol ListTravelPackagesPresentationLogic {
-	func presentSomething(response: ListTravelPackages.Something.Response)
+	func presentTravelPackages(response: ListTravelPackages.ListTravelPackages.Response)
 }
 
 class ListTravelPackagesPresenter: ListTravelPackagesPresentationLogic {
 	weak var viewController: ListTravelPackagesDisplayLogic?
 	
-	// MARK: Do something
+	// MARK: Present Travel Packages
 	
-	func presentSomething(response: ListTravelPackages.Something.Response) {
-		let viewModel = ListTravelPackages.Something.ViewModel()
-		viewController?.displaySomething(viewModel: viewModel)
+	func presentTravelPackages(response: ListTravelPackages.ListTravelPackages.Response) {
+		var packagesInfo: [ListTravelPackages.PackageInfo]? = nil
+		var errorMessage: String? = nil
+		
+		if let packagesModel = response.packages {
+			packagesInfo = packagesModel.map({ (modelPackage) -> ListTravelPackages.PackageInfo in
+				return ListTravelPackages.PackageInfo(
+					name: modelPackage.name,
+					price: "R$" + modelPackage.value.toString,
+					image: modelPackage.image ?? #imageLiteral(resourceName: "logo.png")
+				)
+			})
+		} else if let error = response.error {
+			errorMessage = self.message(for: error)
+		} else {
+			errorMessage = self.message(for: .Unknown)
+		}
+		
+		let viewModel = ListTravelPackages.ListTravelPackages.ViewModel(packagesInfo: packagesInfo, errorMessage: errorMessage)
+		viewController?.displayListOfPackages(viewModel: viewModel)
+	}
+	
+	private func message(for apiError: ViajabessaAPIError) -> String {
+		switch apiError {
+		case .NoConnection:
+			return "Sem conexão com a internet."
+		case .CouldNotParseResponse:
+			return "Ocorreu um erro, entre em contato com a equipe Viajabessa."
+		case .Failure(let message):
+			return "Ocorreu um erro: \(message)."
+		case .Unknown:
+			return "Ocorreu um erro desconhecido. Por favor, tente novamente mais tarde"
+		}
 	}
 }

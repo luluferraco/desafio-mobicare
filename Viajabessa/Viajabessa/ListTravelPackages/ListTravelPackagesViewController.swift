@@ -13,7 +13,7 @@
 import UIKit
 
 protocol ListTravelPackagesDisplayLogic: class {
-	func displaySomething(viewModel: ListTravelPackages.Something.ViewModel)
+	func displayListOfPackages(viewModel: ListTravelPackages.ListTravelPackages.ViewModel)
 }
 
 class ListTravelPackagesViewController: UITableViewController, ListTravelPackagesDisplayLogic {
@@ -62,20 +62,23 @@ class ListTravelPackagesViewController: UITableViewController, ListTravelPackage
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		doSomething()
+		getTravelPackages()
 	}
 	
-	// MARK: Do something
+	// MARK: List Travel Packages
 	
-	//@IBOutlet weak var nameTextField: UITextField!
+	private var travelPackages: [ListTravelPackages.PackageInfo]! = []
 	
-	func doSomething() {
-		let request = ListTravelPackages.Something.Request()
-		interactor?.doSomething(request: request)
+	func getTravelPackages() {
+		let request = ListTravelPackages.ListTravelPackages.Request()
+		interactor?.getAllTravelPackages(request: request)
 	}
 	
-	func displaySomething(viewModel: ListTravelPackages.Something.ViewModel) {
-		//nameTextField.text = viewModel.name
+	func displayListOfPackages(viewModel: ListTravelPackages.ListTravelPackages.ViewModel) {
+		if let packagesInfo = viewModel.packagesInfo {
+			self.travelPackages = packagesInfo
+			self.tableView.reloadData()
+		}
 	}
 	
 }
@@ -84,11 +87,17 @@ class ListTravelPackagesViewController: UITableViewController, ListTravelPackage
 
 extension ListTravelPackagesViewController {
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 2
+		return self.travelPackages.count
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if let cell = tableView.dequeueReusableCell(withIdentifier: "PackageTableViewCell", for: indexPath) as? PackageTableViewCell {
+			let packageForIndex = self.travelPackages[indexPath.row]
+			
+			cell.backgroundImageView.image = packageForIndex.image
+			cell.titleLabel.text = packageForIndex.name
+			cell.priceLabel.text = packageForIndex.price
+			
 			return cell
 		}
 		

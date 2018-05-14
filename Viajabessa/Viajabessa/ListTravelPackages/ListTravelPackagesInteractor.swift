@@ -13,25 +13,35 @@
 import UIKit
 
 protocol ListTravelPackagesBusinessLogic {
-	func doSomething(request: ListTravelPackages.Something.Request)
+	func getAllTravelPackages(request: ListTravelPackages.ListTravelPackages.Request)
 }
 
 protocol ListTravelPackagesDataStore {
-	//var name: String { get set }
+	
 }
 
 class ListTravelPackagesInteractor: ListTravelPackagesBusinessLogic, ListTravelPackagesDataStore {
 	var presenter: ListTravelPackagesPresentationLogic?
-	var worker: ListTravelPackagesWorker?
-	//var name: String = ""
+	let worker = ViajabessaAPIWorker.shared
 	
-	// MARK: Do something
+	// MARK: Get all Travel Packages
 	
-	func doSomething(request: ListTravelPackages.Something.Request) {
-		worker = ListTravelPackagesWorker()
-		worker?.doSomeWork()
+	var allTravelPackages: [TravelPackage] = []
+	
+	func getAllTravelPackages(request: ListTravelPackages.ListTravelPackages.Request) {
+		var response = ListTravelPackages.ListTravelPackages.Response(packages: nil, error: nil)
 		
-		let response = ListTravelPackages.Something.Response()
-		presenter?.presentSomething(response: response)
+		worker.getAllTravelPackages { (allTravelPackages, error) in
+			if let allTravelPackages = allTravelPackages {
+				self.allTravelPackages = allTravelPackages
+				response.packages = self.allTravelPackages
+			} else if let error = error {
+				response.error = error
+			} else {
+				response.error = .Unknown
+			}
+			
+			self.presenter?.presentTravelPackages(response: response)
+		}
 	}
 }

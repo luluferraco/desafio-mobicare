@@ -17,7 +17,7 @@ class TravelPackage: Decodable {
 	public let value: Double!
 	
 	private enum CodingKeys: String, CodingKey {
-		case id				= "publicada_em"
+		case id				= "id"
 		case name			= "nome"
 		case description	= "descricao"
 		case imageURLString = "url_imagem"

@@ -21,7 +21,7 @@ enum HTTPRequestsError: Error {
 
 class HTTPRequestsWorker {
 	
-	/// Performs a GET operation at the specified url.
+	/// Performs a GET operation at the specified url and returns a JSON.
 	///
 	/// - Parameters:
 	///   - url: Url to be visited.
@@ -46,6 +46,29 @@ class HTTPRequestsWorker {
 				catch let error {
 					completion(nil, .Unknown(error.localizedDescription))
 				}
+			} else {
+				completion(nil, .CouldNotParseResponse)
+			}
+			}.resume()
+	}
+	
+	/// Performs a GET operation at the specified url and returns raw Data.
+	///
+	/// - Parameters:
+	///   - url: Url to be visited.
+	///   - completion: The completion handler to call when the load request is complete.
+	public func getHTTP(at url: String, withCompletion completion: @escaping (Data?, HTTPRequestsError?) -> Void) {
+		guard let url = URL(string: url) else {
+			completion(nil, .CouldNotFormURL)
+			return
+		}
+		
+		URLSession.shared.dataTask(with: url) { (data, response, error) in
+			if let error = error {
+				print(error.localizedDescription)
+				completion(nil, .Failure(error.localizedDescription))
+			} else if let data = data {
+				completion(data, nil)
 			} else {
 				completion(nil, .CouldNotParseResponse)
 			}
