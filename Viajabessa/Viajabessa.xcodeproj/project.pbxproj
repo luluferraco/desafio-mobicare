@@ -19,6 +19,12 @@
 		3D9C10AF20A7F38400A3B7A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C10AE20A7F38400A3B7A7 /* AppDelegate.swift */; };
 		3D9C10B920A7F38700A3B7A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D9C10B820A7F38700A3B7A7 /* Assets.xcassets */; };
 		3D9C10BC20A7F38700A3B7A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D9C10BA20A7F38700A3B7A7 /* LaunchScreen.storyboard */; };
+		3DDF39B420A94B69002A3607 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF39B320A94B69002A3607 /* Transaction.swift */; };
+		3DDF39B620A94B91002A3607 /* TravelPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF39B520A94B91002A3607 /* TravelPackage.swift */; };
+		3DDF39B820A94CEA002A3607 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF39B720A94CEA002A3607 /* Card.swift */; };
+		3DDF39BA20A94DFA002A3607 /* PhoneInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF39B920A94DFA002A3607 /* PhoneInfo.swift */; };
+		3DDF39BC20A9518F002A3607 /* DateFormatter+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF39BB20A9518F002A3607 /* DateFormatter+Codable.swift */; };
+		3DDF39BE20A954B9002A3607 /* UIDevice+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF39BD20A954B9002A3607 /* UIDevice+Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +42,12 @@
 		3D9C10B820A7F38700A3B7A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D9C10BB20A7F38700A3B7A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D9C10BD20A7F38700A3B7A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DDF39B320A94B69002A3607 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		3DDF39B520A94B91002A3607 /* TravelPackage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelPackage.swift; sourceTree = "<group>"; };
+		3DDF39B720A94CEA002A3607 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		3DDF39B920A94DFA002A3607 /* PhoneInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneInfo.swift; sourceTree = "<group>"; };
+		3DDF39BB20A9518F002A3607 /* DateFormatter+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Codable.swift"; sourceTree = "<group>"; };
+		3DDF39BD20A954B9002A3607 /* UIDevice+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Helpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +81,8 @@
 			children = (
 				3D9C10AE20A7F38400A3B7A7 /* AppDelegate.swift */,
 				3D9C10BD20A7F38700A3B7A7 /* Info.plist */,
+				3DDF39BB20A9518F002A3607 /* DateFormatter+Codable.swift */,
+				3DDF39BD20A954B9002A3607 /* UIDevice+Helpers.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -85,6 +99,10 @@
 		3D2E44E920A8FEE90090B046 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3DDF39B720A94CEA002A3607 /* Card.swift */,
+				3DDF39B920A94DFA002A3607 /* PhoneInfo.swift */,
+				3DDF39B320A94B69002A3607 /* Transaction.swift */,
+				3DDF39B520A94B91002A3607 /* TravelPackage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -196,14 +214,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DDF39BE20A954B9002A3607 /* UIDevice+Helpers.swift in Sources */,
 				3D2E44E620A8FE680090B046 /* ListTravelPackagesViewController.swift in Sources */,
 				3D2E44EB20A900F80090B046 /* PackageTableViewCell.swift in Sources */,
 				3D2E44DD20A8FDF70090B046 /* ListTravelPackagesWorker.swift in Sources */,
 				3D9C10AF20A7F38400A3B7A7 /* AppDelegate.swift in Sources */,
+				3DDF39B420A94B69002A3607 /* Transaction.swift in Sources */,
 				3D2E44DE20A8FDF70090B046 /* ListTravelPackagesInteractor.swift in Sources */,
 				3D2E44E120A8FDF70090B046 /* ListTravelPackagesRouter.swift in Sources */,
+				3DDF39BC20A9518F002A3607 /* DateFormatter+Codable.swift in Sources */,
+				3DDF39B820A94CEA002A3607 /* Card.swift in Sources */,
 				3D2E44ED20A940010090B046 /* HTTPRequestsWorker.swift in Sources */,
 				3D2E44E020A8FDF70090B046 /* ListTravelPackagesModels.swift in Sources */,
+				3DDF39BA20A94DFA002A3607 /* PhoneInfo.swift in Sources */,
+				3DDF39B620A94B91002A3607 /* TravelPackage.swift in Sources */,
 				3D2E44DF20A8FDF70090B046 /* ListTravelPackagesPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
