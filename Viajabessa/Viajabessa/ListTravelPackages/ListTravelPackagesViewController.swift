@@ -77,4 +77,25 @@ class ListTravelPackagesViewController: UITableViewController, ListTravelPackage
 	func displaySomething(viewModel: ListTravelPackages.Something.ViewModel) {
 		//nameTextField.text = viewModel.name
 	}
+	
+}
+
+// MARK:- UITableViewDataSource implementatio
+
+extension ListTravelPackagesViewController {
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return 2
+	}
+	
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		if let cell = tableView.dequeueReusableCell(withIdentifier: "PackageTableViewCell", for: indexPath) as? PackageTableViewCell {
+			return cell
+		}
+		
+		return UITableViewCell()
+	}
+	
+	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 200.0
+	}
 }

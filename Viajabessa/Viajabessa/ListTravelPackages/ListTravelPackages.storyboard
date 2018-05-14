@@ -1,30 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="B0Y-u5-6XA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aX1-Tx-BMT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--List Travel Packages View Controller-->
+        <!--Pacotes de Viajem-->
         <scene sceneID="oXw-gX-weS">
             <objects>
                 <tableViewController id="B0Y-u5-6XA" customClass="ListTravelPackagesViewController" customModule="Viajabessa" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1WJ-By-WBz">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1WJ-By-WBz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ZjP-cC-P1L">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PackageTableViewCell" rowHeight="183" id="ZjP-cC-P1L" customClass="PackageTableViewCell" customModule="Viajabessa" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="183"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZjP-cC-P1L" id="odm-LS-o7H">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="183"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="goldenGate" translatesAutoresizingMaskIntoConstraints="NO" id="r8j-9v-dCB">
+                                            <rect key="frame" x="5" y="5" width="365" height="172.5"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyS-BA-a11">
+                                            <rect key="frame" x="16" y="19" width="343" height="26.5"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UpG-fa-laf">
+                                            <rect key="frame" x="16" y="45.5" width="343" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="r8j-9v-dCB" firstAttribute="leading" secondItem="odm-LS-o7H" secondAttribute="leading" constant="5" id="2AP-vU-KUv"/>
+                                        <constraint firstItem="UpG-fa-laf" firstAttribute="top" secondItem="cyS-BA-a11" secondAttribute="bottom" id="7m1-OV-A2V"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="cyS-BA-a11" secondAttribute="trailing" id="FPE-ny-3Uv"/>
+                                        <constraint firstAttribute="trailing" secondItem="r8j-9v-dCB" secondAttribute="trailing" constant="5" id="Gnr-dh-HiH"/>
+                                        <constraint firstAttribute="bottom" secondItem="r8j-9v-dCB" secondAttribute="bottom" constant="5" id="Ivv-Dg-zJo"/>
+                                        <constraint firstItem="r8j-9v-dCB" firstAttribute="top" secondItem="odm-LS-o7H" secondAttribute="top" constant="5" id="KWe-pP-hRa"/>
+                                        <constraint firstItem="UpG-fa-laf" firstAttribute="leading" secondItem="odm-LS-o7H" secondAttribute="leadingMargin" id="YG2-Nw-0ZF"/>
+                                        <constraint firstItem="cyS-BA-a11" firstAttribute="top" secondItem="odm-LS-o7H" secondAttribute="topMargin" constant="8" id="ced-6k-F3k"/>
+                                        <constraint firstItem="cyS-BA-a11" firstAttribute="leading" secondItem="odm-LS-o7H" secondAttribute="leadingMargin" id="nAd-bZ-HwP"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="UpG-fa-laf" secondAttribute="trailing" id="ye9-9W-rbR"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="backgroundImageView" destination="r8j-9v-dCB" id="QXD-tz-xJw"/>
+                                    <outlet property="priceLabel" destination="UpG-fa-laf" id="lxs-V3-8ns"/>
+                                    <outlet property="titleLabel" destination="cyS-BA-a11" id="JBm-CX-LXd"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -32,10 +68,32 @@
                             <outlet property="delegate" destination="B0Y-u5-6XA" id="aPI-J4-s0U"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Pacotes de Viajem" id="EAu-HH-NDs"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="86r-po-Z2o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137" y="220"/>
+            <point key="canvasLocation" x="1076" y="219.94002998500753"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0uu-Y2-St8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aX1-Tx-BMT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="gMO-he-eZK">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="B0Y-u5-6XA" kind="relationship" relationship="rootViewController" id="oq9-UE-IR0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ebQ-zt-WH8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="219.94002998500753"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="goldenGate" width="1200" height="900"/>
+    </resources>
 </document>
