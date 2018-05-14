@@ -15,6 +15,7 @@
 		3D2E44E420A8FE120090B046 /* ListTravelPackages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D2E44E320A8FE120090B046 /* ListTravelPackages.storyboard */; };
 		3D2E44E620A8FE680090B046 /* ListTravelPackagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E44E520A8FE680090B046 /* ListTravelPackagesViewController.swift */; };
 		3D2E44EB20A900F80090B046 /* PackageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E44EA20A900F80090B046 /* PackageTableViewCell.swift */; };
+		3D2E44ED20A940010090B046 /* HTTPRequestsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E44EC20A940010090B046 /* HTTPRequestsWorker.swift */; };
 		3D9C10AF20A7F38400A3B7A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C10AE20A7F38400A3B7A7 /* AppDelegate.swift */; };
 		3D9C10B720A7F38400A3B7A7 /* Viajabessa.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C10B520A7F38400A3B7A7 /* Viajabessa.xcdatamodeld */; };
 		3D9C10B920A7F38700A3B7A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D9C10B820A7F38700A3B7A7 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		3D2E44E320A8FE120090B046 /* ListTravelPackages.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListTravelPackages.storyboard; sourceTree = "<group>"; };
 		3D2E44E520A8FE680090B046 /* ListTravelPackagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTravelPackagesViewController.swift; sourceTree = "<group>"; };
 		3D2E44EA20A900F80090B046 /* PackageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageTableViewCell.swift; sourceTree = "<group>"; };
+		3D2E44EC20A940010090B046 /* HTTPRequestsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestsWorker.swift; sourceTree = "<group>"; };
 		3D9C10AB20A7F38400A3B7A7 /* Viajabessa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Viajabessa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D9C10AE20A7F38400A3B7A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D9C10B620A7F38400A3B7A7 /* Viajabessa.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Viajabessa.xcdatamodel; sourceTree = "<group>"; };
@@ -90,6 +92,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		3D2E44EE20A940050090B046 /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				3D2E44EC20A940010090B046 /* HTTPRequestsWorker.swift */,
+			);
+			path = Workers;
+			sourceTree = "<group>";
+		};
 		3D9C10A220A7F38400A3B7A7 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +123,7 @@
 				3D2E44E820A8FED90090B046 /* Interface Helpers */,
 				3D2E44E920A8FEE90090B046 /* Models */,
 				3D2E44E720A8FEC80090B046 /* Supporting Files */,
+				3D2E44EE20A940050090B046 /* Workers */,
 			);
 			path = Viajabessa;
 			sourceTree = "<group>";
@@ -195,6 +206,7 @@
 				3D9C10B720A7F38400A3B7A7 /* Viajabessa.xcdatamodeld in Sources */,
 				3D2E44DE20A8FDF70090B046 /* ListTravelPackagesInteractor.swift in Sources */,
 				3D2E44E120A8FDF70090B046 /* ListTravelPackagesRouter.swift in Sources */,
+				3D2E44ED20A940010090B046 /* HTTPRequestsWorker.swift in Sources */,
 				3D2E44E020A8FDF70090B046 /* ListTravelPackagesModels.swift in Sources */,
 				3D2E44DF20A8FDF70090B046 /* ListTravelPackagesPresenter.swift in Sources */,
 			);
