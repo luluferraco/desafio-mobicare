@@ -121,6 +121,10 @@ class ViajabessaAPIWorker {
 		if let packageEndPoint = self.endPoints?.packages {
 			self.httpRequestsWorker.getHTTP(at: self.apiURLString + packageEndPoint) { (travelPackages: [TravelPackage]?, error) in
 				if let travelPackages = travelPackages {
+					travelPackages.forEach({ (package) in
+						self.downloadImage(for: package)
+					})
+					
 					completion(travelPackages, nil)
 				} else if let error = error {
 					completion(nil, self.getVAError(from: error))
@@ -130,6 +134,14 @@ class ViajabessaAPIWorker {
 			}
 		} else {
 			completion(nil, .Failure("Não foi possível recuperar os end points da API."))
+		}
+	}
+	
+	private func downloadImage(for package: TravelPackage) {
+		self.httpRequestsWorker.getHTTP(at: package.imageURLString) { (imageData: Data?, error) in
+			if let imageData = imageData, let image = UIImage(data: imageData) {
+				package.image = image
+			}
 		}
 	}
 	

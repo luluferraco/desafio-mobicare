@@ -6,13 +6,14 @@
 //  Copyright © 2018 Lucas Ferraço. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class TravelPackage: Decodable {
 	public let id: Int!
 	public let name: String!
 	public let description: String!
-	private let imageURLString: String!
+	public let imageURLString: String!
+	public var image: UIImage?
 	public let value: Double!
 	
 	private enum CodingKeys: String, CodingKey {
