@@ -17,7 +17,6 @@
 		3D2E44EB20A900F80090B046 /* PackageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E44EA20A900F80090B046 /* PackageTableViewCell.swift */; };
 		3D2E44ED20A940010090B046 /* HTTPRequestsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E44EC20A940010090B046 /* HTTPRequestsWorker.swift */; };
 		3D9C10AF20A7F38400A3B7A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C10AE20A7F38400A3B7A7 /* AppDelegate.swift */; };
-		3D9C10B720A7F38400A3B7A7 /* Viajabessa.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C10B520A7F38400A3B7A7 /* Viajabessa.xcdatamodeld */; };
 		3D9C10B920A7F38700A3B7A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D9C10B820A7F38700A3B7A7 /* Assets.xcassets */; };
 		3D9C10BC20A7F38700A3B7A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D9C10BA20A7F38700A3B7A7 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -34,7 +33,6 @@
 		3D2E44EC20A940010090B046 /* HTTPRequestsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestsWorker.swift; sourceTree = "<group>"; };
 		3D9C10AB20A7F38400A3B7A7 /* Viajabessa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Viajabessa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D9C10AE20A7F38400A3B7A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3D9C10B620A7F38400A3B7A7 /* Viajabessa.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Viajabessa.xcdatamodel; sourceTree = "<group>"; };
 		3D9C10B820A7F38700A3B7A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D9C10BB20A7F38700A3B7A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D9C10BD20A7F38700A3B7A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -87,7 +85,6 @@
 		3D2E44E920A8FEE90090B046 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3D9C10B520A7F38400A3B7A7 /* Viajabessa.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -203,7 +200,6 @@
 				3D2E44EB20A900F80090B046 /* PackageTableViewCell.swift in Sources */,
 				3D2E44DD20A8FDF70090B046 /* ListTravelPackagesWorker.swift in Sources */,
 				3D9C10AF20A7F38400A3B7A7 /* AppDelegate.swift in Sources */,
-				3D9C10B720A7F38400A3B7A7 /* Viajabessa.xcdatamodeld in Sources */,
 				3D2E44DE20A8FDF70090B046 /* ListTravelPackagesInteractor.swift in Sources */,
 				3D2E44E120A8FDF70090B046 /* ListTravelPackagesRouter.swift in Sources */,
 				3D2E44ED20A940010090B046 /* HTTPRequestsWorker.swift in Sources */,
@@ -400,19 +396,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		3D9C10B520A7F38400A3B7A7 /* Viajabessa.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				3D9C10B620A7F38400A3B7A7 /* Viajabessa.xcdatamodel */,
-			);
-			currentVersion = 3D9C10B620A7F38400A3B7A7 /* Viajabessa.xcdatamodel */;
-			path = Viajabessa.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 3D9C10A320A7F38400A3B7A7 /* Project object */;
 }
