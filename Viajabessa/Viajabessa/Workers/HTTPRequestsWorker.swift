@@ -12,7 +12,7 @@
 
 import Foundation
 
-enum HTTPRequestsErrors: Error {
+enum HTTPRequestsError: Error {
 	case CouldNotFormURL
 	case CouldNotParseResponse
 	case Failure(String)
@@ -26,7 +26,7 @@ class HTTPRequestsWorker {
 	/// - Parameters:
 	///   - url: Url to be visited.
 	///   - completion: The completion handler to call when the load request is complete.
-	public func getHTTP<T : Decodable>(at url: String, withCompletion completion: @escaping (T?, HTTPRequestsErrors?) -> Void) {
+	public func getHTTP<T : Decodable>(at url: String, withCompletion completion: @escaping (T?, HTTPRequestsError?) -> Void) {
 		guard let url = URL(string: url) else {
 			completion(nil, .CouldNotFormURL)
 			return
@@ -58,7 +58,7 @@ class HTTPRequestsWorker {
 	///   - url: Url to be visited.
 	///   - encodableObj: Encodable object representation of the request's body.
 	///   - completion: The completion handler to call when the load request is complete.
-	public func postHTTP<T : Encodable>(at url: String, withEncodableObj encodableObj: T, withCompletion completion: @escaping (HTTPURLResponse?, HTTPRequestsErrors?) -> Void) {
+	public func postHTTP<T : Encodable>(at url: String, withEncodableObj encodableObj: T, withCompletion completion: @escaping (HTTPURLResponse?, HTTPRequestsError?) -> Void) {
 		guard let url = URL(string: url) else {
 			completion(nil, .CouldNotFormURL)
 			return

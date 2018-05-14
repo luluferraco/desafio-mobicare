@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		394A045A8EFB765E03C242B9 /* Pods_Viajabessa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00245114F5F02EBA75F6D86 /* Pods_Viajabessa.framework */; };
 		3D2E44DD20A8FDF70090B046 /* ListTravelPackagesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E44D720A8FDF70090B046 /* ListTravelPackagesWorker.swift */; };
 		3D2E44DE20A8FDF70090B046 /* ListTravelPackagesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E44D820A8FDF70090B046 /* ListTravelPackagesInteractor.swift */; };
 		3D2E44DF20A8FDF70090B046 /* ListTravelPackagesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E44D920A8FDF70090B046 /* ListTravelPackagesPresenter.swift */; };
@@ -25,9 +26,11 @@
 		3DDF39BA20A94DFA002A3607 /* PhoneInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF39B920A94DFA002A3607 /* PhoneInfo.swift */; };
 		3DDF39BC20A9518F002A3607 /* DateFormatter+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF39BB20A9518F002A3607 /* DateFormatter+Codable.swift */; };
 		3DDF39BE20A954B9002A3607 /* UIDevice+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF39BD20A954B9002A3607 /* UIDevice+Helpers.swift */; };
+		3DDF39C020A95B2C002A3607 /* ViajabessaAPIWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF39BF20A95B2C002A3607 /* ViajabessaAPIWorker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		124251379459AF00E642E252 /* Pods-Viajabessa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Viajabessa.release.xcconfig"; path = "Pods/Target Support Files/Pods-Viajabessa/Pods-Viajabessa.release.xcconfig"; sourceTree = "<group>"; };
 		3D2E44D720A8FDF70090B046 /* ListTravelPackagesWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTravelPackagesWorker.swift; sourceTree = "<group>"; };
 		3D2E44D820A8FDF70090B046 /* ListTravelPackagesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTravelPackagesInteractor.swift; sourceTree = "<group>"; };
 		3D2E44D920A8FDF70090B046 /* ListTravelPackagesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTravelPackagesPresenter.swift; sourceTree = "<group>"; };
@@ -48,6 +51,9 @@
 		3DDF39B920A94DFA002A3607 /* PhoneInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneInfo.swift; sourceTree = "<group>"; };
 		3DDF39BB20A9518F002A3607 /* DateFormatter+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Codable.swift"; sourceTree = "<group>"; };
 		3DDF39BD20A954B9002A3607 /* UIDevice+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Helpers.swift"; sourceTree = "<group>"; };
+		3DDF39BF20A95B2C002A3607 /* ViajabessaAPIWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViajabessaAPIWorker.swift; sourceTree = "<group>"; };
+		85A63C8E31906E4CA65FCD86 /* Pods-Viajabessa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Viajabessa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Viajabessa/Pods-Viajabessa.debug.xcconfig"; sourceTree = "<group>"; };
+		D00245114F5F02EBA75F6D86 /* Pods_Viajabessa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Viajabessa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				394A045A8EFB765E03C242B9 /* Pods_Viajabessa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				3D2E44EC20A940010090B046 /* HTTPRequestsWorker.swift */,
+				3DDF39BF20A95B2C002A3607 /* ViajabessaAPIWorker.swift */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
@@ -120,6 +128,8 @@
 			children = (
 				3D9C10AD20A7F38400A3B7A7 /* Viajabessa */,
 				3D9C10AC20A7F38400A3B7A7 /* Products */,
+				F933C411A933A993FB616E11 /* Pods */,
+				C3AE4C10E10AB08C0F2F3736 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,6 +153,23 @@
 			path = Viajabessa;
 			sourceTree = "<group>";
 		};
+		C3AE4C10E10AB08C0F2F3736 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D00245114F5F02EBA75F6D86 /* Pods_Viajabessa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F933C411A933A993FB616E11 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				85A63C8E31906E4CA65FCD86 /* Pods-Viajabessa.debug.xcconfig */,
+				124251379459AF00E642E252 /* Pods-Viajabessa.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,9 +177,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D9C10C020A7F38700A3B7A7 /* Build configuration list for PBXNativeTarget "Viajabessa" */;
 			buildPhases = (
+				CB40062FA8F74C02DFD2EFCD /* [CP] Check Pods Manifest.lock */,
 				3D9C10A720A7F38400A3B7A7 /* Sources */,
 				3D9C10A820A7F38400A3B7A7 /* Frameworks */,
 				3D9C10A920A7F38400A3B7A7 /* Resources */,
+				897385FECDC217C1D4BC9155 /* [CP] Embed Pods Frameworks */,
+				F28F1C642A85B1C61385FDF1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -209,12 +239,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		897385FECDC217C1D4BC9155 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Viajabessa/Pods-Viajabessa-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Viajabessa/Pods-Viajabessa-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB40062FA8F74C02DFD2EFCD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Viajabessa-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F28F1C642A85B1C61385FDF1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Viajabessa/Pods-Viajabessa-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3D9C10A720A7F38400A3B7A7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3DDF39BE20A954B9002A3607 /* UIDevice+Helpers.swift in Sources */,
+				3DDF39C020A95B2C002A3607 /* ViajabessaAPIWorker.swift in Sources */,
 				3D2E44E620A8FE680090B046 /* ListTravelPackagesViewController.swift in Sources */,
 				3D2E44EB20A900F80090B046 /* PackageTableViewCell.swift in Sources */,
 				3D2E44DD20A8FDF70090B046 /* ListTravelPackagesWorker.swift in Sources */,
@@ -362,16 +447,14 @@
 		};
 		3D9C10C120A7F38700A3B7A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85A63C8E31906E4CA65FCD86 /* Pods-Viajabessa.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6PMD3Q4LVK;
 				INFOPLIST_FILE = "$(SRCROOT)/Viajabessa/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lucasferraco.Viajabessa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -381,16 +464,14 @@
 		};
 		3D9C10C220A7F38700A3B7A7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 124251379459AF00E642E252 /* Pods-Viajabessa.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6PMD3Q4LVK;
 				INFOPLIST_FILE = "$(SRCROOT)/Viajabessa/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lucasferraco.Viajabessa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
