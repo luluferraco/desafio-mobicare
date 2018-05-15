@@ -28,6 +28,13 @@
 		3DDF39C020A95B2C002A3607 /* ViajabessaAPIWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF39BF20A95B2C002A3607 /* ViajabessaAPIWorker.swift */; };
 		3DDF39C220A975CF002A3607 /* CustomActIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF39C120A975CF002A3607 /* CustomActIndicator.swift */; };
 		3DDF39C420A97B58002A3607 /* Double+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF39C320A97B57002A3607 /* Double+Helpers.swift */; };
+		3DDF39CD20AA7244002A3607 /* BuyTravelPackageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF39C720AA7243002A3607 /* BuyTravelPackageViewController.swift */; };
+		3DDF39CE20AA7244002A3607 /* BuyTravelPackageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF39C820AA7243002A3607 /* BuyTravelPackageInteractor.swift */; };
+		3DDF39CF20AA7244002A3607 /* BuyTravelPackageWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF39C920AA7243002A3607 /* BuyTravelPackageWorker.swift */; };
+		3DDF39D020AA7244002A3607 /* BuyTravelPackageModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF39CA20AA7243002A3607 /* BuyTravelPackageModels.swift */; };
+		3DDF39D120AA7244002A3607 /* BuyTravelPackagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF39CB20AA7244002A3607 /* BuyTravelPackagePresenter.swift */; };
+		3DDF39D220AA7244002A3607 /* BuyTravelPackageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF39CC20AA7244002A3607 /* BuyTravelPackageRouter.swift */; };
+		3DDF39D520AA7270002A3607 /* BuyTravelPackage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DDF39D420AA7270002A3607 /* BuyTravelPackage.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +61,13 @@
 		3DDF39BF20A95B2C002A3607 /* ViajabessaAPIWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViajabessaAPIWorker.swift; sourceTree = "<group>"; };
 		3DDF39C120A975CF002A3607 /* CustomActIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActIndicator.swift; sourceTree = "<group>"; };
 		3DDF39C320A97B57002A3607 /* Double+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Helpers.swift"; sourceTree = "<group>"; };
+		3DDF39C720AA7243002A3607 /* BuyTravelPackageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTravelPackageViewController.swift; sourceTree = "<group>"; };
+		3DDF39C820AA7243002A3607 /* BuyTravelPackageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTravelPackageInteractor.swift; sourceTree = "<group>"; };
+		3DDF39C920AA7243002A3607 /* BuyTravelPackageWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTravelPackageWorker.swift; sourceTree = "<group>"; };
+		3DDF39CA20AA7243002A3607 /* BuyTravelPackageModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTravelPackageModels.swift; sourceTree = "<group>"; };
+		3DDF39CB20AA7244002A3607 /* BuyTravelPackagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTravelPackagePresenter.swift; sourceTree = "<group>"; };
+		3DDF39CC20AA7244002A3607 /* BuyTravelPackageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTravelPackageRouter.swift; sourceTree = "<group>"; };
+		3DDF39D420AA7270002A3607 /* BuyTravelPackage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BuyTravelPackage.storyboard; sourceTree = "<group>"; };
 		85A63C8E31906E4CA65FCD86 /* Pods-Viajabessa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Viajabessa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Viajabessa/Pods-Viajabessa.debug.xcconfig"; sourceTree = "<group>"; };
 		D00245114F5F02EBA75F6D86 /* Pods_Viajabessa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Viajabessa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -147,6 +161,7 @@
 		3D9C10AD20A7F38400A3B7A7 /* Viajabessa */ = {
 			isa = PBXGroup;
 			children = (
+				3DDF39D320AA724D002A3607 /* BuyTravelPackage */,
 				3D2E44E220A8FE020090B046 /* ListTravelPackages */,
 				3D2E44E820A8FED90090B046 /* Interface Helpers */,
 				3D2E44E920A8FEE90090B046 /* Models */,
@@ -154,6 +169,20 @@
 				3D2E44EE20A940050090B046 /* Workers */,
 			);
 			path = Viajabessa;
+			sourceTree = "<group>";
+		};
+		3DDF39D320AA724D002A3607 /* BuyTravelPackage */ = {
+			isa = PBXGroup;
+			children = (
+				3DDF39D420AA7270002A3607 /* BuyTravelPackage.storyboard */,
+				3DDF39C820AA7243002A3607 /* BuyTravelPackageInteractor.swift */,
+				3DDF39CA20AA7243002A3607 /* BuyTravelPackageModels.swift */,
+				3DDF39CB20AA7244002A3607 /* BuyTravelPackagePresenter.swift */,
+				3DDF39CC20AA7244002A3607 /* BuyTravelPackageRouter.swift */,
+				3DDF39C720AA7243002A3607 /* BuyTravelPackageViewController.swift */,
+				3DDF39C920AA7243002A3607 /* BuyTravelPackageWorker.swift */,
+			);
+			path = BuyTravelPackage;
 			sourceTree = "<group>";
 		};
 		C3AE4C10E10AB08C0F2F3736 /* Frameworks */ = {
@@ -234,6 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DDF39D520AA7270002A3607 /* BuyTravelPackage.storyboard in Resources */,
 				3D9C10BC20A7F38700A3B7A7 /* LaunchScreen.storyboard in Resources */,
 				3D2E44E420A8FE120090B046 /* ListTravelPackages.storyboard in Resources */,
 				3D9C10B920A7F38700A3B7A7 /* Assets.xcassets in Resources */,
@@ -305,11 +335,16 @@
 			files = (
 				3DDF39BE20A954B9002A3607 /* UIDevice+Helpers.swift in Sources */,
 				3DDF39C020A95B2C002A3607 /* ViajabessaAPIWorker.swift in Sources */,
+				3DDF39D220AA7244002A3607 /* BuyTravelPackageRouter.swift in Sources */,
+				3DDF39CE20AA7244002A3607 /* BuyTravelPackageInteractor.swift in Sources */,
 				3D2E44E620A8FE680090B046 /* ListTravelPackagesViewController.swift in Sources */,
 				3DDF39C220A975CF002A3607 /* CustomActIndicator.swift in Sources */,
+				3DDF39CD20AA7244002A3607 /* BuyTravelPackageViewController.swift in Sources */,
 				3D2E44EB20A900F80090B046 /* PackageTableViewCell.swift in Sources */,
+				3DDF39CF20AA7244002A3607 /* BuyTravelPackageWorker.swift in Sources */,
 				3D9C10AF20A7F38400A3B7A7 /* AppDelegate.swift in Sources */,
 				3DDF39B420A94B69002A3607 /* Transaction.swift in Sources */,
+				3DDF39D120AA7244002A3607 /* BuyTravelPackagePresenter.swift in Sources */,
 				3D2E44DE20A8FDF70090B046 /* ListTravelPackagesInteractor.swift in Sources */,
 				3D2E44E120A8FDF70090B046 /* ListTravelPackagesRouter.swift in Sources */,
 				3DDF39BC20A9518F002A3607 /* DateFormatter+Codable.swift in Sources */,
@@ -320,6 +355,7 @@
 				3DDF39BA20A94DFA002A3607 /* PhoneInfo.swift in Sources */,
 				3DDF39B620A94B91002A3607 /* TravelPackage.swift in Sources */,
 				3D2E44DF20A8FDF70090B046 /* ListTravelPackagesPresenter.swift in Sources */,
+				3DDF39D020AA7244002A3607 /* BuyTravelPackageModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,7 +496,10 @@
 				DEVELOPMENT_TEAM = 6PMD3Q4LVK;
 				INFOPLIST_FILE = "$(SRCROOT)/Viajabessa/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = lucasferraco.Viajabessa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -477,7 +516,10 @@
 				DEVELOPMENT_TEAM = 6PMD3Q4LVK;
 				INFOPLIST_FILE = "$(SRCROOT)/Viajabessa/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = lucasferraco.Viajabessa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
