@@ -32,4 +32,23 @@ enum BuyTravelPackage {
 			var image: UIImage
 		}
 	}
+	
+	enum BuyPackage {
+		struct Request {}
+		
+		struct Response {
+			var error: BuyError?
+		}
+		
+		struct ViewModel {
+			var success: Bool
+			var resultTitleMessage: String
+			var resultMessage: String
+		}
+	}
+	
+	enum BuyError: Error {
+		case NoConnection
+		case Failure
+	}
 }

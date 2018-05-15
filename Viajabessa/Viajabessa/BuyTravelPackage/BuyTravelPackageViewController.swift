@@ -14,6 +14,7 @@ import UIKit
 
 protocol BuyTravelPackageDisplayLogic: class {
 	func displayPackageInfo(_ viewModel: BuyTravelPackage.DisplayPackageInfo.ViewModel)
+	func displayBuyResult(_ viewModel: BuyTravelPackage.BuyPackage.ViewModel)
 }
 
 class BuyTravelPackageViewController: UIViewController, BuyTravelPackageDisplayLogic {
@@ -28,6 +29,8 @@ class BuyTravelPackageViewController: UIViewController, BuyTravelPackageDisplayL
 	private var initialHeightForTextView: CGFloat!
 	@IBOutlet var descriptionTextViewHeightConstraint: NSLayoutConstraint!
 	@IBOutlet var contentViewHeightConstraint: NSLayoutConstraint!
+	
+	private var actIndicator: CustomActIndicator!
 	
 	// MARK: Object lifecycle
 	
@@ -72,6 +75,7 @@ class BuyTravelPackageViewController: UIViewController, BuyTravelPackageDisplayL
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		self.actIndicator = CustomActIndicator(frame: self.view.bounds)
 		self.initialHeightForTextView = self.descriptionTextViewHeightConstraint.constant
 		
 		getPackageInfo()
@@ -105,5 +109,27 @@ class BuyTravelPackageViewController: UIViewController, BuyTravelPackageDisplayL
 		
 		let contentDiff = self.descriptionTextViewHeightConstraint.constant - self.initialHeightForTextView
 		self.contentViewHeightConstraint.constant += contentDiff
+	}
+	
+	// MARK: Buy package
+	
+	@IBAction func buyPackage(sender: UIButton) {
+		self.actIndicator.show(on: self.view)
+		
+		let request = BuyTravelPackage.BuyPackage.Request()
+		self.interactor?.buyPackage(request)
+	}
+	
+	func displayBuyResult(_ viewModel: BuyTravelPackage.BuyPackage.ViewModel) {
+		self.actIndicator.hide()
+		
+		let alert = UIAlertController(title: viewModel.resultTitleMessage, message: viewModel.resultMessage, preferredStyle: .alert)
+		let action = UIAlertAction(title: "Ok", style: .default) { (_) in
+			if viewModel.success {
+				self.router?.routeToListTravelPackages()
+			}
+		}
+		alert.addAction(action)
+		self.present(alert, animated: true)
 	}
 }

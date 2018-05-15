@@ -14,6 +14,7 @@ import UIKit
 
 protocol BuyTravelPackageBusinessLogic {
 	func getPackageInfo(_ request: BuyTravelPackage.DisplayPackageInfo.Request)
+	func buyPackage(_ request: BuyTravelPackage.BuyPackage.Request)
 }
 
 protocol BuyTravelPackageDataStore {
@@ -36,5 +37,38 @@ class BuyTravelPackageInteractor: BuyTravelPackageBusinessLogic, BuyTravelPackag
 			image: self.selectedTravelPackage.image ?? #imageLiteral(resourceName: "logo")
 		)
 		presenter?.presentPackageInfo(response)
+	}
+	
+	// MARK: Buy Package
+	
+	func buyPackage(_ request: BuyTravelPackage.BuyPackage.Request) {
+		let worker = ViajabessaAPIWorker.shared
+		let newCard = Card()
+		newCard.expiration = Date()
+		newCard.holderName = "Lucas Ferraço"
+		newCard.number = "1234567789012304"
+		newCard.verificationCode = 234
+		let newTransaction = Transaction(package: self.selectedTravelPackage, card: newCard)
+		
+		worker.buyPackage(with: newTransaction) { (error) in
+			var response = BuyTravelPackage.BuyPackage.Response(error: nil)
+			
+			if let error = error {
+				response.error = self.getModelError(from: error)
+			}
+			
+			DispatchQueue.main.async {
+				self.presenter?.presentBuyResult(response)
+			}
+		}
+	}
+	
+	func getModelError(from apiError: ViajabessaAPIError) -> BuyTravelPackage.BuyError {
+		switch apiError {
+		case .NoConnection:
+			return .NoConnection
+		case .Failure(_), .Unknown, .CouldNotParseResponse:
+			return .Failure
+		}
 	}
 }

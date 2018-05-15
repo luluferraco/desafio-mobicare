@@ -14,6 +14,7 @@ import UIKit
 
 protocol BuyTravelPackagePresentationLogic {
 	func presentPackageInfo(_ response: BuyTravelPackage.DisplayPackageInfo.Response)
+	func presentBuyResult(_ response: BuyTravelPackage.BuyPackage.Response)
 }
 
 class BuyTravelPackagePresenter: BuyTravelPackagePresentationLogic {
@@ -29,5 +30,40 @@ class BuyTravelPackagePresenter: BuyTravelPackagePresentationLogic {
 			image: response.image
 		)
 		viewController?.displayPackageInfo(viewModel)
+	}
+	
+	// MARK: Present buy result
+	
+	func presentBuyResult(_ response: BuyTravelPackage.BuyPackage.Response) {
+		var title = ""
+		var message = ""
+		
+		if let error = response.error {
+			let tuple = self.getMessages(for: error)
+			title = tuple.title
+			message = tuple.message
+		} else {
+			title = "Boa viagem!"
+			message = "Compra efetuada com sucesso!"
+		}
+		
+		let viewModel = BuyTravelPackage.BuyPackage.ViewModel(
+			success: (response.error == nil),
+			resultTitleMessage: title,
+			resultMessage: message
+		)
+		self.viewController?.displayBuyResult(viewModel)
+	}
+	
+	func getMessages(for error: BuyTravelPackage.BuyError) -> (title: String, message: String) {
+		var tuple = (title: "Ops", message: "")
+		switch error {
+		case .NoConnection:
+			tuple.message = "Sem conexão. Para efetuar uma compra, por favor conecte seu dispositivo na internet e tente novamente."
+		case .Failure:
+			tuple.message = "Erro inesperado. Tente novamente mais tarde ou entre em contato conosco."
+		}
+		
+		return tuple
 	}
 }
