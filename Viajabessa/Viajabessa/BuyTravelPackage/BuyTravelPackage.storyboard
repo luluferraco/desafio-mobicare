@@ -14,7 +14,7 @@
         <!--Buy Travel Package View Controller-->
         <scene sceneID="QpB-Zb-QIw">
             <objects>
-                <viewController id="MDc-eD-nRU" customClass="BuyTravelPackageViewController" customModule="Viajabessa" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BuyTravelPackageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MDc-eD-nRU" customClass="BuyTravelPackageViewController" customModule="Viajabessa" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1MK-ol-lET"/>
                         <viewControllerLayoutGuide type="bottom" id="XQa-pM-UFu"/>

@@ -29,7 +29,23 @@ enum ListTravelPackages {
 		}
 	}
 	
+	enum StoreSelectedTravelPackage {
+		struct Request {
+			var packageInfo: PackageInfo
+		}
+		
+		struct Response {
+			var success: Bool
+		}
+		
+		struct ViewModel {
+			var success: Bool
+			var errorMessage: String?
+		}
+	}
+	
 	struct PackageInfo {
+		var id: Int
 		var name: String
 		var price: String
 		var image: UIImage

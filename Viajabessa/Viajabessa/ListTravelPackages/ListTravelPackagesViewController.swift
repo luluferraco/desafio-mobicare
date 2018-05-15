@@ -13,7 +13,8 @@
 import UIKit
 
 protocol ListTravelPackagesDisplayLogic: class {
-	func displayListOfPackages(viewModel: ListTravelPackages.ListTravelPackages.ViewModel)
+	func displayListOfPackages(_ viewModel: ListTravelPackages.ListTravelPackages.ViewModel)
+	func displaySelectedPackageResult(_ viewModel: ListTravelPackages.StoreSelectedTravelPackage.ViewModel)
 }
 
 class ListTravelPackagesViewController: UITableViewController, ListTravelPackagesDisplayLogic {
@@ -77,10 +78,10 @@ class ListTravelPackagesViewController: UITableViewController, ListTravelPackage
 		self.actIndicator.show(on: self.view)
 		
 		let request = ListTravelPackages.ListTravelPackages.Request()
-		interactor?.getAllTravelPackages(request: request)
+		interactor?.getAllTravelPackages(request)
 	}
 	
-	func displayListOfPackages(viewModel: ListTravelPackages.ListTravelPackages.ViewModel) {
+	func displayListOfPackages(_ viewModel: ListTravelPackages.ListTravelPackages.ViewModel) {
 		self.actIndicator.hide()
 		
 		if let packagesInfo = viewModel.packagesInfo {
@@ -99,11 +100,32 @@ class ListTravelPackagesViewController: UITableViewController, ListTravelPackage
 		}
 	}
 	
+	// MARK: Store selected Travel Packages
+	func storeSelected(travelPackage: ListTravelPackages.PackageInfo) {
+		self.actIndicator.show(on: self.view)
+		
+		let request = ListTravelPackages.StoreSelectedTravelPackage.Request(packageInfo: travelPackage)
+		interactor?.storeSelectedTravelPackage(request)
+	}
+	
+	func displaySelectedPackageResult(_ viewModel: ListTravelPackages.StoreSelectedTravelPackage.ViewModel) {
+		self.actIndicator.hide()
+		
+		if viewModel.success {
+			self.router?.routeToBuyTravelPackage()
+		} else if let message = viewModel.errorMessage {
+			let alert = UIAlertController(title: "Ops", message: message, preferredStyle: .alert)
+			alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+			
+			self.present(alert, animated: true, completion: nil)
+		}
+	}
 }
 
-// MARK:- UITableViewDataSource implementatio
-
 extension ListTravelPackagesViewController {
+	
+	// MARK: UITableViewDataSource implementation
+	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return self.travelPackages.count
 	}
@@ -124,5 +146,11 @@ extension ListTravelPackagesViewController {
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return 200.0
+	}
+	
+	// MARK:- UITableViewDelegate implementation
+	
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		self.storeSelected(travelPackage: self.travelPackages[indexPath.row])
 	}
 }

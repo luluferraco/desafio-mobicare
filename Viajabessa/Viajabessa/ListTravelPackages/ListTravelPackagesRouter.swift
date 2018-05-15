@@ -13,42 +13,44 @@
 import UIKit
 
 @objc protocol ListTravelPackagesRoutingLogic {
-  //func routeToSomewhere(_ segue: UIStoryboardSegue? = nil)
+	func routeToBuyTravelPackage()
 }
 
 protocol ListTravelPackagesDataPassing {
-  var dataStore: ListTravelPackagesDataStore? { get }
+	var dataStore: ListTravelPackagesDataStore? { get }
 }
 
 class ListTravelPackagesRouter: NSObject, ListTravelPackagesRoutingLogic, ListTravelPackagesDataPassing {
-  weak var viewController: ListTravelPackagesViewController?
-  var dataStore: ListTravelPackagesDataStore?
-  
-  // MARK: Routing
-  
-  //func routeToSomewhere(_ segue: UIStoryboardSegue? = nil) {
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
-
-  // MARK: Navigation
-  
-  //func navigateToSomewhere(source: ListTravelPackagesViewController, destination: SomewhereViewController) {
-  //  source.show(destination, sender: nil)
-  //}
-  
-  // MARK: Passing data
-  
-  //func passDataToSomewhere(source: ListTravelPackagesDataStore, destination: inout SomewhereDataStore) {
-  //  destination.name = source.name
-  //}
+	weak var viewController: ListTravelPackagesViewController?
+	var dataStore: ListTravelPackagesDataStore?
+	
+	// MARK: Routing
+	
+	func routeToBuyTravelPackage() {
+		let storyboard = UIStoryboard(name: "BuyTravelPackage", bundle: nil)
+		if let destinationVC = storyboard.instantiateViewController(withIdentifier: "BuyTravelPackageViewController") as? BuyTravelPackageViewController {
+			var destinationDS = destinationVC.router?.dataStore
+			if let unwrappedDestDS = destinationVC.router?.dataStore, let dataStore = self.dataStore {
+				destinationDS = unwrappedDestDS
+				self.passDataToBuyTravelPackage(source: dataStore, destination: &destinationDS!)
+			}
+			
+			if let vc = self.viewController {
+				self.navigateToBuyTravelPackage(source: vc, destination: destinationVC)
+			}
+		}
+		
+	}
+	
+	// MARK: Navigation
+	
+	func navigateToBuyTravelPackage(source: ListTravelPackagesViewController, destination: BuyTravelPackageViewController) {
+	  source.navigationController?.pushViewController(destination, animated: true)
+	}
+	
+	// MARK: Passing data
+	
+	func passDataToBuyTravelPackage(source: ListTravelPackagesDataStore, destination: inout BuyTravelPackageDataStore) {
+		destination.selectedTravelPackage = source.selectedTravelPackage
+	}
 }

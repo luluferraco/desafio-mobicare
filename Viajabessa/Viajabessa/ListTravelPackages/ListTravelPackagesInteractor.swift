@@ -13,22 +13,25 @@
 import UIKit
 
 protocol ListTravelPackagesBusinessLogic {
-	func getAllTravelPackages(request: ListTravelPackages.ListTravelPackages.Request)
+	func getAllTravelPackages(_ request: ListTravelPackages.ListTravelPackages.Request)
+	func storeSelectedTravelPackage(_ request: ListTravelPackages.StoreSelectedTravelPackage.Request)
 }
 
 protocol ListTravelPackagesDataStore {
-	
+	var selectedTravelPackage: TravelPackage? { get set }
 }
 
 class ListTravelPackagesInteractor: ListTravelPackagesBusinessLogic, ListTravelPackagesDataStore {
 	var presenter: ListTravelPackagesPresentationLogic?
 	let worker = ViajabessaAPIWorker.shared
 	
+	var selectedTravelPackage: TravelPackage?
+	
 	// MARK: Get all Travel Packages
 	
 	var allTravelPackages: [TravelPackage] = []
 	
-	func getAllTravelPackages(request: ListTravelPackages.ListTravelPackages.Request) {
+	func getAllTravelPackages(_ request: ListTravelPackages.ListTravelPackages.Request) {
 		var response = ListTravelPackages.ListTravelPackages.Response(packages: nil, error: nil)
 		
 		worker.getAllTravelPackages { (allTravelPackages, error) in
@@ -41,7 +44,22 @@ class ListTravelPackagesInteractor: ListTravelPackagesBusinessLogic, ListTravelP
 				response.error = .Unknown
 			}
 			
-			self.presenter?.presentTravelPackages(response: response)
+			self.presenter?.presentTravelPackages(response)
 		}
+	}
+	
+	// MARK: Store selected Travel Package
+	
+	func storeSelectedTravelPackage(_ request: ListTravelPackages.StoreSelectedTravelPackage.Request) {
+		var response = ListTravelPackages.StoreSelectedTravelPackage.Response(success: false)
+		
+		if let selectedTravelPackage = self.allTravelPackages.first(where: { (pack) -> Bool in
+			return pack.id == request.packageInfo.id
+		}) {
+			self.selectedTravelPackage = selectedTravelPackage
+			response.success = true
+		}
+		
+		self.presenter?.presentStoreResult(response)
 	}
 }

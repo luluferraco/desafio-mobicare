@@ -17,13 +17,14 @@ protocol BuyTravelPackageBusinessLogic {
 }
 
 protocol BuyTravelPackageDataStore {
-	//var name: String { get set }
+	var selectedTravelPackage: TravelPackage! { get set }
 }
 
 class BuyTravelPackageInteractor: BuyTravelPackageBusinessLogic, BuyTravelPackageDataStore {
 	var presenter: BuyTravelPackagePresentationLogic?
 	var worker: BuyTravelPackageWorker?
-	//var name: String = ""
+	
+	var selectedTravelPackage: TravelPackage!
 	
 	// MARK: Do something
 	
