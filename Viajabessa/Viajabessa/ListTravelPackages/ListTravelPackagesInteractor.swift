@@ -44,7 +44,9 @@ class ListTravelPackagesInteractor: ListTravelPackagesBusinessLogic, ListTravelP
 				response.error = .Unknown
 			}
 			
-			self.presenter?.presentTravelPackages(response)
+			DispatchQueue.main.async {
+				self.presenter?.presentTravelPackages(response)
+			}
 		}
 	}
 	

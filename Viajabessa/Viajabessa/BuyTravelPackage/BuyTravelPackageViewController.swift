@@ -89,14 +89,12 @@ class BuyTravelPackageViewController: UIViewController, BuyTravelPackageDisplayL
 	}
 	
 	func displayPackageInfo(_ viewModel: BuyTravelPackage.DisplayPackageInfo.ViewModel) {
+		self.title = viewModel.destination
 		self.locationImageView.image = viewModel.image
-		
-		self.title = viewModel.title
 		self.titleLabel.text = viewModel.title
-		
 		self.priceLabel.text = viewModel.price
-		
 		self.descriptionTextView.text = viewModel.description
+		
 		self.adjustContentSize()
 	}
 	

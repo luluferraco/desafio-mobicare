@@ -12,6 +12,7 @@ class TravelPackage: Decodable {
 	public let id: Int!
 	public let name: String!
 	public let description: String!
+	public let destination: String!
 	public let imageURLString: String!
 	public var image: UIImage?
 	public let value: Double!
@@ -20,6 +21,7 @@ class TravelPackage: Decodable {
 		case id				= "id"
 		case name			= "nome"
 		case description	= "descricao"
+		case destination 	= "destino"
 		case imageURLString = "url_imagem"
 		case value			= "valor"
 	}
@@ -29,6 +31,7 @@ class TravelPackage: Decodable {
 		id = try values.decode(Int.self, forKey: .id)
 		name = try values.decode(String.self, forKey: .name)
 		description = try values.decode(String.self, forKey: .description)
+		destination = try values.decode(String.self, forKey: .destination)
 		imageURLString = try values.decode(String.self, forKey: .imageURLString)
 		value = try values.decode(Double.self, forKey: .value)
 	}

@@ -27,6 +27,7 @@ class BuyTravelPackagePresenter: BuyTravelPackagePresentationLogic {
 			title: response.title,
 			price: "R$" + response.value.toString,
 			description: response.description,
+			destination: response.destination,
 			image: response.image
 		)
 		viewController?.displayPackageInfo(viewModel)

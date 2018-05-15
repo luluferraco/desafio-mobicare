@@ -14,6 +14,8 @@ class PackageTableViewCell: UITableViewCell {
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var priceLabel: UILabel!
 	
+	private var gradientLayer: CAGradientLayer!
+	
 	override func draw(_ rect: CGRect) {
 		super.draw(rect)
 		
@@ -27,21 +29,16 @@ class PackageTableViewCell: UITableViewCell {
 		self.backgroundImageView.layer.shadowPath = UIBezierPath(rect: self.backgroundImageView.bounds).cgPath
 	}
 	
-	override func awakeFromNib() {
-        super.awakeFromNib()
+	override func layoutSubviews() {
+		super.layoutSubviews()
 		
 		// Add black layer to highlight the labels
-		let alphaLayer = CAGradientLayer()
-		alphaLayer.frame = self.backgroundImageView.bounds
-		alphaLayer.colors = [UIColor.black.cgColor, UIColor.clear.cgColor]
-		alphaLayer.endPoint = CGPoint(x: 0.5, y: 0.5)
-		self.backgroundImageView.layer.addSublayer(alphaLayer)
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+		if self.gradientLayer == nil {
+			self.gradientLayer = CAGradientLayer()
+			self.gradientLayer.frame = self.backgroundImageView.bounds
+			self.gradientLayer.colors = [UIColor.black.cgColor, UIColor.clear.cgColor]
+			self.gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.5)
+			self.backgroundImageView.layer.addSublayer(self.gradientLayer)
+		}
+	}
 }

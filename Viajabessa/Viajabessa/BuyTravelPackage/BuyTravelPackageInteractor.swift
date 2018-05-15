@@ -34,6 +34,7 @@ class BuyTravelPackageInteractor: BuyTravelPackageBusinessLogic, BuyTravelPackag
 			title: self.selectedTravelPackage.name,
 			value: self.selectedTravelPackage.value,
 			description: self.selectedTravelPackage.description,
+			destination: self.selectedTravelPackage.destination,
 			image: self.selectedTravelPackage.image ?? #imageLiteral(resourceName: "logo")
 		)
 		presenter?.presentPackageInfo(response)

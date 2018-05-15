@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Pacotes de Viajem-->
+        <!--Pacotes-->
         <scene sceneID="oXw-gX-weS">
             <objects>
                 <tableViewController id="B0Y-u5-6XA" customClass="ListTravelPackagesViewController" customModule="Viajabessa" customModuleProvider="target" sceneMemberID="viewController">
@@ -68,7 +68,7 @@
                             <outlet property="delegate" destination="B0Y-u5-6XA" id="aPI-J4-s0U"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Pacotes de Viajem" id="EAu-HH-NDs"/>
+                    <navigationItem key="navigationItem" title="Pacotes" id="EAu-HH-NDs"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="86r-po-Z2o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -82,6 +82,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="gMO-he-eZK">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="1" green="0.90980392160000001" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

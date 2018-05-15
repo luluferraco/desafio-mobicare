@@ -22,6 +22,7 @@ enum BuyTravelPackage {
 			var title: String
 			var value: Double
 			var description: String
+			var destination: String
 			var image: UIImage
 		}
 		
@@ -29,6 +30,7 @@ enum BuyTravelPackage {
 			var title: String
 			var price: String
 			var description: String
+			var destination: String
 			var image: UIImage
 		}
 	}
