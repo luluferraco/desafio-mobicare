@@ -20,6 +20,11 @@ class BuyTravelPackageViewController: UIViewController, BuyTravelPackageDisplayL
 	var interactor: BuyTravelPackageBusinessLogic?
 	var router: (NSObjectProtocol & BuyTravelPackageRoutingLogic & BuyTravelPackageDataPassing)?
 	
+	@IBOutlet weak var locationImageView: UIImageView!
+	@IBOutlet weak var titleLabel: UILabel!
+	@IBOutlet weak var priceLabel: UILabel!
+	@IBOutlet weak var descriptionTextView: UITextView!
+	
 	// MARK: Object lifecycle
 	
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {

@@ -1,7 +1,108 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MDc-eD-nRU">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Buy Travel Package View Controller-->
+        <scene sceneID="QpB-Zb-QIw">
+            <objects>
+                <viewController id="MDc-eD-nRU" customClass="BuyTravelPackageViewController" customModule="Viajabessa" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1MK-ol-lET"/>
+                        <viewControllerLayoutGuide type="bottom" id="XQa-pM-UFu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yiS-70-Rg2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hHA-tW-x4h">
+                                <rect key="frame" x="0.0" y="20" width="375" height="267"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56t-jf-Ebu">
+                                <rect key="frame" x="16" y="295" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XLX-77-p64">
+                                <rect key="frame" x="16" y="348" width="343" height="311"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P52-o2-90d">
+                                <rect key="frame" x="16" y="319" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xzx-Ye-1Dw">
+                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xc-Oc-ELB">
+                                        <rect key="frame" x="93.5" y="25" width="187.5" height="50"/>
+                                        <color key="backgroundColor" red="0.2666666667" green="0.74509803919999995" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <state key="normal" title="Comprar">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="6xc-Oc-ELB" firstAttribute="centerY" secondItem="Xzx-Ye-1Dw" secondAttribute="centerY" id="0as-bE-JUq"/>
+                                    <constraint firstItem="6xc-Oc-ELB" firstAttribute="width" secondItem="Xzx-Ye-1Dw" secondAttribute="width" multiplier="0.5" id="QU4-9J-7e3"/>
+                                    <constraint firstAttribute="height" constant="100" id="XPy-No-g0n"/>
+                                    <constraint firstItem="6xc-Oc-ELB" firstAttribute="height" secondItem="Xzx-Ye-1Dw" secondAttribute="height" multiplier="0.5" id="p0I-Mt-K9v"/>
+                                    <constraint firstItem="6xc-Oc-ELB" firstAttribute="centerX" secondItem="Xzx-Ye-1Dw" secondAttribute="centerX" id="uTY-NZ-EnM"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="P52-o2-90d" firstAttribute="leading" secondItem="yiS-70-Rg2" secondAttribute="leadingMargin" id="1bb-kd-JjC"/>
+                            <constraint firstItem="XLX-77-p64" firstAttribute="top" secondItem="P52-o2-90d" secondAttribute="bottom" constant="8" id="5A9-er-6i1"/>
+                            <constraint firstItem="hHA-tW-x4h" firstAttribute="height" secondItem="yiS-70-Rg2" secondAttribute="height" multiplier="0.4" id="B9y-7P-ia3"/>
+                            <constraint firstItem="XLX-77-p64" firstAttribute="leading" secondItem="yiS-70-Rg2" secondAttribute="leadingMargin" id="CFp-aK-D4Z"/>
+                            <constraint firstItem="XQa-pM-UFu" firstAttribute="top" secondItem="XLX-77-p64" secondAttribute="bottom" constant="8" id="Eu7-S8-lf7"/>
+                            <constraint firstItem="Xzx-Ye-1Dw" firstAttribute="leading" secondItem="yiS-70-Rg2" secondAttribute="leading" id="Hid-pT-JPQ"/>
+                            <constraint firstItem="56t-jf-Ebu" firstAttribute="top" secondItem="hHA-tW-x4h" secondAttribute="bottom" constant="8" id="Igl-b8-5pK"/>
+                            <constraint firstItem="hHA-tW-x4h" firstAttribute="top" secondItem="1MK-ol-lET" secondAttribute="bottom" id="JKY-HU-kJX"/>
+                            <constraint firstAttribute="trailing" secondItem="Xzx-Ye-1Dw" secondAttribute="trailing" id="LGZ-Lj-S4z"/>
+                            <constraint firstAttribute="trailing" secondItem="hHA-tW-x4h" secondAttribute="trailing" id="Ly9-j8-IgK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XLX-77-p64" secondAttribute="trailing" id="T03-ec-1PN"/>
+                            <constraint firstItem="P52-o2-90d" firstAttribute="top" secondItem="56t-jf-Ebu" secondAttribute="bottom" constant="3" id="WeX-Nf-4yI"/>
+                            <constraint firstItem="hHA-tW-x4h" firstAttribute="leading" secondItem="yiS-70-Rg2" secondAttribute="leading" id="awF-FB-HHK"/>
+                            <constraint firstItem="XQa-pM-UFu" firstAttribute="top" secondItem="Xzx-Ye-1Dw" secondAttribute="bottom" id="dVR-c7-qpY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="56t-jf-Ebu" secondAttribute="trailing" id="g3J-TV-JzA"/>
+                            <constraint firstItem="56t-jf-Ebu" firstAttribute="leading" secondItem="yiS-70-Rg2" secondAttribute="leadingMargin" id="iYQ-mi-aIG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="P52-o2-90d" secondAttribute="trailing" id="lfw-IR-3Cb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="XLX-77-p64" id="tBK-ra-JkA"/>
+                        <outlet property="locationImageView" destination="hHA-tW-x4h" id="VlL-ft-xbe"/>
+                        <outlet property="priceLabel" destination="P52-o2-90d" id="Hkg-76-8QS"/>
+                        <outlet property="titleLabel" destination="56t-jf-Ebu" id="tsM-p3-Jgv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D2z-vO-mfg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-78" y="27"/>
+        </scene>
+    </scenes>
 </document>
