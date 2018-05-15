@@ -15,15 +15,21 @@ import UIKit
 enum BuyTravelPackage {
 	// MARK: Use cases
 	
-	enum Something {
-		struct Request {
-			
-		}
+	enum DisplayPackageInfo {
+		struct Request {}
+		
 		struct Response {
-			
+			var title: String
+			var value: Double
+			var description: String
+			var image: UIImage
 		}
+		
 		struct ViewModel {
-			
+			var title: String
+			var price: String
+			var description: String
+			var image: UIImage
 		}
 	}
 }

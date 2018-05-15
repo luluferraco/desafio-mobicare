@@ -13,7 +13,7 @@
 import UIKit
 
 protocol BuyTravelPackageBusinessLogic {
-	func doSomething(request: BuyTravelPackage.Something.Request)
+	func getPackageInfo(_ request: BuyTravelPackage.DisplayPackageInfo.Request)
 }
 
 protocol BuyTravelPackageDataStore {
@@ -26,13 +26,15 @@ class BuyTravelPackageInteractor: BuyTravelPackageBusinessLogic, BuyTravelPackag
 	
 	var selectedTravelPackage: TravelPackage!
 	
-	// MARK: Do something
+	// MARK: Get Package info
 	
-	func doSomething(request: BuyTravelPackage.Something.Request) {
-		worker = BuyTravelPackageWorker()
-		worker?.doSomeWork()
-		
-		let response = BuyTravelPackage.Something.Response()
-		presenter?.presentSomething(response: response)
+	func getPackageInfo(_ request: BuyTravelPackage.DisplayPackageInfo.Request) {
+		let response = BuyTravelPackage.DisplayPackageInfo.Response(
+			title: self.selectedTravelPackage.name,
+			value: self.selectedTravelPackage.value,
+			description: self.selectedTravelPackage.description,
+			image: self.selectedTravelPackage.image ?? #imageLiteral(resourceName: "logo")
+		)
+		presenter?.presentPackageInfo(response)
 	}
 }

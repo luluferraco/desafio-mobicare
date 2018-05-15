@@ -13,7 +13,7 @@
 import UIKit
 
 protocol BuyTravelPackageDisplayLogic: class {
-	func displaySomething(viewModel: BuyTravelPackage.Something.ViewModel)
+	func displayPackageInfo(_ viewModel: BuyTravelPackage.DisplayPackageInfo.ViewModel)
 }
 
 class BuyTravelPackageViewController: UIViewController, BuyTravelPackageDisplayLogic {
@@ -24,6 +24,10 @@ class BuyTravelPackageViewController: UIViewController, BuyTravelPackageDisplayL
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var priceLabel: UILabel!
 	@IBOutlet weak var descriptionTextView: UITextView!
+	
+	private var initialHeightForTextView: CGFloat!
+	@IBOutlet var descriptionTextViewHeightConstraint: NSLayoutConstraint!
+	@IBOutlet var contentViewHeightConstraint: NSLayoutConstraint!
 	
 	// MARK: Object lifecycle
 	
@@ -67,19 +71,39 @@ class BuyTravelPackageViewController: UIViewController, BuyTravelPackageDisplayL
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		doSomething()
+		
+		self.initialHeightForTextView = self.descriptionTextViewHeightConstraint.constant
+		
+		getPackageInfo()
 	}
 	
-	// MARK: Do something
+	// MARK: Display Package info
 	
-	//@IBOutlet weak var nameTextField: UITextField!
-	
-	func doSomething() {
-		let request = BuyTravelPackage.Something.Request()
-		interactor?.doSomething(request: request)
+	func getPackageInfo() {
+		let request = BuyTravelPackage.DisplayPackageInfo.Request()
+		interactor?.getPackageInfo(request)
 	}
 	
-	func displaySomething(viewModel: BuyTravelPackage.Something.ViewModel) {
-		//nameTextField.text = viewModel.name
+	func displayPackageInfo(_ viewModel: BuyTravelPackage.DisplayPackageInfo.ViewModel) {
+		self.locationImageView.image = viewModel.image
+		
+		self.title = viewModel.title
+		self.titleLabel.text = viewModel.title
+		
+		self.priceLabel.text = viewModel.price
+		
+		self.descriptionTextView.text = viewModel.description
+		self.adjustContentSize()
+	}
+	
+	func adjustContentSize() {
+		let attString = self.descriptionTextView.attributedText.boundingRect(
+			with: CGSize(width: self.descriptionTextView.bounds.width, height: .greatestFiniteMagnitude),
+			options: .usesLineFragmentOrigin, context: nil
+		)
+		self.descriptionTextViewHeightConstraint.constant = attString.size.height + 20 // padding
+		
+		let contentDiff = self.descriptionTextViewHeightConstraint.constant - self.initialHeightForTextView
+		self.contentViewHeightConstraint.constant += contentDiff
 	}
 }

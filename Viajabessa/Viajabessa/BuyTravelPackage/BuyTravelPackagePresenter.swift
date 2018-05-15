@@ -13,16 +13,21 @@
 import UIKit
 
 protocol BuyTravelPackagePresentationLogic {
-	func presentSomething(response: BuyTravelPackage.Something.Response)
+	func presentPackageInfo(_ response: BuyTravelPackage.DisplayPackageInfo.Response)
 }
 
 class BuyTravelPackagePresenter: BuyTravelPackagePresentationLogic {
 	weak var viewController: BuyTravelPackageDisplayLogic?
 	
-	// MARK: Do something
+	// MARK: Present Package Info
 	
-	func presentSomething(response: BuyTravelPackage.Something.Response) {
-		let viewModel = BuyTravelPackage.Something.ViewModel()
-		viewController?.displaySomething(viewModel: viewModel)
+	func presentPackageInfo(_ response: BuyTravelPackage.DisplayPackageInfo.Response) {
+		let viewModel = BuyTravelPackage.DisplayPackageInfo.ViewModel(
+			title: response.title,
+			price: "R$" + response.value.toString,
+			description: response.description,
+			image: response.image
+		)
+		viewController?.displayPackageInfo(viewModel)
 	}
 }
