@@ -7,10 +7,21 @@
 //
 
 import Foundation
+import Caishen
 
-class Card {
-	var holderName: String!
-	var number: String!
-	var verificationCode: Int!
-	var expiration: Date!
+struct CreditCard: CardType {
+	
+	// Caishen Card Configuration
+	
+	var name: String = "Credit Card"
+	
+	var CVCLength: Int = 3
+	
+	var identifyingDigits: Set<Int> = Set(0...9999)
+	
+	public let numberGrouping = [4, 4, 4, 4]
+	
+	public let requiresCVC = true
+	
+	public let requiresExpiry = true
 }

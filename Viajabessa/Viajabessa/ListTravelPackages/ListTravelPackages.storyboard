@@ -13,7 +13,7 @@
         <!--Perfil-->
         <scene sceneID="yRh-Pg-KL7">
             <objects>
-                <tableViewController id="Z0j-bk-e8U" sceneMemberID="viewController">
+                <tableViewController id="Z0j-bk-e8U" customClass="ListTransactionsViewController" customModule="Viajabessa" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pNb-at-YMd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,6 +36,9 @@
                     <navigationItem key="navigationItem" title="Perfil" id="pMH-78-old">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xAP-3O-rWs">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addCard:" destination="Z0j-bk-e8U" id="0aV-an-7gE"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
@@ -78,16 +81,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r8j-9v-dCB">
-                                            <rect key="frame" x="5" y="5" width="365" height="172.5"/>
+                                            <rect key="frame" x="5" y="5" width="590" height="172.5"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyS-BA-a11">
-                                            <rect key="frame" x="16" y="19" width="343" height="20.5"/>
+                                            <rect key="frame" x="20" y="19" width="560" height="20.5"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UpG-fa-laf">
-                                            <rect key="frame" x="16" y="39.5" width="343" height="18"/>
+                                            <rect key="frame" x="20" y="39.5" width="560" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>

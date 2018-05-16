@@ -7,16 +7,19 @@
 //
 
 import Foundation
+import Caishen
 
 class Transaction {
 	public var publicationDate: Date!
 	public var package: TravelPackage!
+	public var cardHolderName: String!
 	public var card: Card!
 	private var phone: Phone! = Phone.shared
 	
-	init(package: TravelPackage, card: Card) {
+	init(package: TravelPackage, cardHolderName: String, card: Card) {
 		self.publicationDate = Date()
 		self.package = package
+		self.cardHolderName = cardHolderName
 		self.card = card
 	}
 }
@@ -46,11 +49,11 @@ extension Transaction: Encodable {
 		try container.encode(package.id, forKey: .packageId)
 		
 		// Card Info
-		try container.encode(card.holderName, forKey: .cardHolder)
-		try container.encode(card.number, forKey: .cardNumber)
-		try container.encode(card.verificationCode, forKey: .cardCode)
+		try container.encode(cardHolderName, forKey: .cardHolder)
+		try container.encode(card.bankCardNumber.rawValue, forKey: .cardNumber)
+		try container.encode(card.cardVerificationCode.toInt(), forKey: .cardCode)
 		let cardFormatter = DateFormatter.expiration
-		try container.encode(cardFormatter.string(from: card.expiration), forKey: .cardExpiration)
+		try container.encode(cardFormatter.string(from: card.expiryDate.rawValue), forKey: .cardExpiration)
 		
 		// Phone Info
 		try container.encode(phone.brand, forKey: .phoneBrand)

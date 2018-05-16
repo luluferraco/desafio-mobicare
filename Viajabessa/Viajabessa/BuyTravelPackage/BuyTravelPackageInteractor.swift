@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import Caishen
 
 protocol BuyTravelPackageBusinessLogic {
 	func getPackageInfo(_ request: BuyTravelPackage.DisplayPackageInfo.Request)
@@ -44,12 +45,8 @@ class BuyTravelPackageInteractor: BuyTravelPackageBusinessLogic, BuyTravelPackag
 	
 	func buyPackage(_ request: BuyTravelPackage.BuyPackage.Request) {
 		let worker = ViajabessaAPIWorker.shared
-		let newCard = Card()
-		newCard.expiration = Date()
-		newCard.holderName = "Lucas Ferraço"
-		newCard.number = "1234567789012304"
-		newCard.verificationCode = 234
-		let newTransaction = Transaction(package: self.selectedTravelPackage, card: newCard)
+		let newCard = Card(number: Number(rawValue: "1234123412341234"), cvc: CVC(rawValue: "123"), expiry: Expiry(month: "12", year: "20")!)
+		let newTransaction = Transaction(package: self.selectedTravelPackage, cardHolderName: "Lucas Ferraço", card: newCard)
 		
 		worker.buyPackage(with: newTransaction) { (error) in
 			var response = BuyTravelPackage.BuyPackage.Response(error: nil)
