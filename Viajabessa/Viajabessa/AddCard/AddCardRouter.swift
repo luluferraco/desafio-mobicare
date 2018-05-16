@@ -13,42 +13,41 @@
 import UIKit
 
 @objc protocol AddCardRoutingLogic {
-  //func routeToSomewhere(_ segue: UIStoryboardSegue? = nil)
+	func routeToBuyTravelPackage()
 }
 
 protocol AddCardDataPassing {
-  var dataStore: AddCardDataStore? { get }
+	var dataStore: AddCardDataStore? { get }
 }
 
 class AddCardRouter: NSObject, AddCardRoutingLogic, AddCardDataPassing {
-  weak var viewController: AddCardViewController?
-  var dataStore: AddCardDataStore?
-  
-  // MARK: Routing
-  
-  //func routeToSomewhere(_ segue: UIStoryboardSegue? = nil) {
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
-
-  // MARK: Navigation
-  
-  //func navigateToSomewhere(source: AddCardViewController, destination: SomewhereViewController) {
-  //  source.show(destination, sender: nil)
-  //}
-  
-  // MARK: Passing data
-  
-  //func passDataToSomewhere(source: AddCardDataStore, destination: inout SomewhereDataStore) {
-  //  destination.name = source.name
-  //}
+	weak var viewController: AddCardViewController?
+	var dataStore: AddCardDataStore?
+	
+	// MARK: Routing
+	
+	func routeToBuyTravelPackage() {
+		if let destinationVC = self.dataStore?.parentViewController as? BuyTravelPackageViewController {
+			var destinationDS = destinationVC.router?.dataStore
+			if let unwrappedDestDS = destinationVC.router?.dataStore, let dataStore = self.dataStore {
+				destinationDS = unwrappedDestDS
+				self.passDataToBuyTravelPackage(source: dataStore, destination: &destinationDS!)
+			}
+			
+			self.navigateToBuyTravelPackage()
+		}
+		
+	}
+	
+	// MARK: Navigation
+	
+	func navigateToBuyTravelPackage() {
+		self.viewController?.navigationController?.popViewController(animated: true)
+	}
+	
+	// MARK: Passing data
+	
+	func passDataToBuyTravelPackage(source: AddCardDataStore, destination: inout BuyTravelPackageDataStore) {
+		destination.creditCard = source.creditCard
+	}
 }

@@ -13,7 +13,7 @@
 import UIKit
 
 protocol AddCardPresentationLogic {
-	func presentSomething(response: AddCard.Something.Response)
+	func presentSavingResult(_ response: AddCard.Save.Response)
 }
 
 class AddCardPresenter: AddCardPresentationLogic {
@@ -21,8 +21,8 @@ class AddCardPresenter: AddCardPresentationLogic {
 	
 	// MARK: Do something
 	
-	func presentSomething(response: AddCard.Something.Response) {
-		let viewModel = AddCard.Something.ViewModel()
-		viewController?.displaySomething(viewModel: viewModel)
+	func presentSavingResult(_ response: AddCard.Save.Response) {
+		let viewModel = AddCard.Save.ViewModel()
+		viewController?.displaySavingResult(viewModel)
 	}
 }

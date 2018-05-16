@@ -20,6 +20,7 @@ protocol BuyTravelPackageBusinessLogic {
 
 protocol BuyTravelPackageDataStore {
 	var selectedTravelPackage: TravelPackage! { get set }
+	var creditCard: Card? { get set }
 }
 
 class BuyTravelPackageInteractor: BuyTravelPackageBusinessLogic, BuyTravelPackageDataStore {
@@ -27,6 +28,7 @@ class BuyTravelPackageInteractor: BuyTravelPackageBusinessLogic, BuyTravelPackag
 	var worker: BuyTravelPackageWorker?
 	
 	var selectedTravelPackage: TravelPackage!
+	var creditCard: Card?
 	
 	// MARK: Get Package info
 	

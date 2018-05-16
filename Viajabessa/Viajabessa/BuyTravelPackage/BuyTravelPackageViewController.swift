@@ -81,6 +81,14 @@ class BuyTravelPackageViewController: UIViewController, BuyTravelPackageDisplayL
 		getPackageInfo()
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		if self.router?.dataStore?.creditCard != nil {
+			self.buyPackage()
+		}
+	}
+	
 	// MARK: Display Package info
 	
 	func getPackageInfo() {
@@ -112,6 +120,10 @@ class BuyTravelPackageViewController: UIViewController, BuyTravelPackageDisplayL
 	// MARK: Buy package
 	
 	@IBAction func buyPackage(sender: UIButton) {
+		self.router?.routeToAddCard()
+	}
+	
+	func buyPackage() {
 		self.actIndicator.show(on: self.view)
 		
 		let request = BuyTravelPackage.BuyPackage.Request()

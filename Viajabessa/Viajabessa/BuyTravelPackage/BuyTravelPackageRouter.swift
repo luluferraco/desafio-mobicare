@@ -14,6 +14,7 @@ import UIKit
 
 @objc protocol BuyTravelPackageRoutingLogic {
 	func routeToListTravelPackages()
+	func routeToAddCard()
 }
 
 protocol BuyTravelPackageDataPassing {
@@ -28,5 +29,31 @@ class BuyTravelPackageRouter: NSObject, BuyTravelPackageRoutingLogic, BuyTravelP
 	
 	func routeToListTravelPackages() {
 		self.viewController?.navigationController?.popViewController(animated: true)
+	}
+	
+	func routeToAddCard() {
+		let storyboard = UIStoryboard(name: "AddCard", bundle: nil)
+		if let destinationVC = storyboard.instantiateViewController(withIdentifier: "AddCardViewController") as? AddCardViewController,
+			let vc = self.viewController {
+			var destinationDS = destinationVC.router?.dataStore
+			if let unwrappedDestDS = destinationVC.router?.dataStore, let dataStore = self.dataStore {
+				destinationDS = unwrappedDestDS
+				self.passDataToAddCard(source: dataStore, destination: &destinationDS!)
+			}
+			
+			self.navigateToAddCard(source: vc, destination: destinationVC)
+		}
+	}
+	
+	// MARK: Navigation
+	
+	func navigateToAddCard(source: BuyTravelPackageViewController, destination: AddCardViewController) {
+		source.navigationController?.pushViewController(destination, animated: true)
+	}
+	
+	// MARK: Passing data
+	
+	func passDataToAddCard(source: BuyTravelPackageDataStore, destination: inout AddCardDataStore) {
+		destination.parentViewController = self.viewController
 	}
 }

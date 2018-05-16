@@ -11,19 +11,18 @@
 //
 
 import UIKit
+import Caishen
 
 enum AddCard {
 	// MARK: Use cases
 	
-	enum Something {
+	enum Save {
 		struct Request {
-			
+			var card: Card
 		}
-		struct Response {
-			
-		}
-		struct ViewModel {
-			
-		}
+		
+		struct Response {}
+		
+		struct ViewModel {}
 	}
 }

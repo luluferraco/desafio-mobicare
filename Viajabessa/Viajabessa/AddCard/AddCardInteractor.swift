@@ -11,27 +11,29 @@
 //
 
 import UIKit
+import Caishen
 
 protocol AddCardBusinessLogic {
-	func doSomething(request: AddCard.Something.Request)
+	func storeCard(_ request: AddCard.Save.Request)
 }
 
 protocol AddCardDataStore {
-	//var name: String { get set }
+	var parentViewController: UIViewController! { get set }
+	var creditCard: Card! { get set }
 }
 
 class AddCardInteractor: AddCardBusinessLogic, AddCardDataStore {
 	var presenter: AddCardPresentationLogic?
-	var worker: AddCardWorker?
-	//var name: String = ""
 	
-	// MARK: Do something
 	
-	func doSomething(request: AddCard.Something.Request) {
-		worker = AddCardWorker()
-		worker?.doSomeWork()
-		
-		let response = AddCard.Something.Response()
-		presenter?.presentSomething(response: response)
+	var parentViewController: UIViewController!
+	var creditCard: Card!
+	
+	// MARK: Store Card
+	
+	func storeCard(_ request: AddCard.Save.Request) {
+		self.creditCard = request.card
+		let response = AddCard.Save.Response()
+		presenter?.presentSavingResult(response)
 	}
 }

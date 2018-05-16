@@ -14,7 +14,7 @@ import UIKit
 import Caishen
 
 protocol AddCardDisplayLogic: class {
-	func displaySomething(viewModel: AddCard.Something.ViewModel)
+	func displaySavingResult(_ viewModel: AddCard.Save.ViewModel)
 }
 
 class AddCardViewController: UIViewController, AddCardDisplayLogic {
@@ -86,35 +86,58 @@ class AddCardViewController: UIViewController, AddCardDisplayLogic {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+		self.view.addGestureRecognizer(tap)
+		
 		self.numberTextField.numberInputTextFieldDelegate = self
 		self.numberTextField.cardTypeRegister.register(cardType: CreditCard())
 		
 		self.cvvTextField.cardInfoTextFieldDelegate = self
-		
-		doSomething()
 	}
 	
 	// MARK: Do something
 	
 	//@IBOutlet weak var nameTextField: UITextField!
 	
-	func doSomething() {
-		let request = AddCard.Something.Request()
-		interactor?.doSomething(request: request)
+	func storeCard(card: Card) {
+		let request = AddCard.Save.Request(card: card)
+		interactor?.storeCard(request)
 	}
 	
-	func displaySomething(viewModel: AddCard.Something.ViewModel) {
-		//nameTextField.text = viewModel.name
+	func displaySavingResult(_ viewModel: AddCard.Save.ViewModel) {
+		self.router?.routeToBuyTravelPackage()
 	}
 	
-	@IBAction func saveCard(_ sender: Any? = nil) {
-		if let holderName = self.nameTextField.text, holderName.isEmpty {
-			print("SALVE O CARTÃO")
+	@IBAction func saveCard(_ sender: Any) {
+		self.saveCreditCard()
+	}
+	
+	func saveCreditCard() {
+		if let holderName = self.nameTextField.text, let card = self.card {
+			if !holderName.isEmpty {
+				self.storeCard(card: card)
+			} else {
+				self.wrongInfoAlert("O nome não pode ser vazio.")
+			}
 		} else {
-			
+			self.wrongInfoAlert()
 		}
 	}
 	
+	func wrongInfoAlert(_ message: String? = nil) {
+		let unwrappedMessage = message != nil ? message! : "Insira dados de um cartão de crédito válido."
+		
+		let alert = UIAlertController(title: "Informações inválidas", message: unwrappedMessage, preferredStyle: .alert)
+		let action = UIAlertAction(title: "Ok", style: .default) { (_) in
+			self.nameTextField.becomeFirstResponder()
+		}
+		alert.addAction(action)
+		self.present(alert, animated: true)
+	}
+	
+	@objc func dismissKeyboard() {
+		self.view.endEditing(true)
+	}
 }
 
 extension AddCardViewController: NumberInputTextFieldDelegate, CardInfoTextFieldDelegate {
@@ -128,14 +151,14 @@ extension AddCardViewController: NumberInputTextFieldDelegate, CardInfoTextField
 	
 	func textField(_ textField: UITextField, didEnterValidInfo: String) {
 		switch textField {
-		case is NumberInputTextField:
+		case self.numberTextField:
 			self.cvvTextField.becomeFirstResponder()
-		case is CVCInputTextField:
+		case self.cvvTextField:
 			self.monthTextField.becomeFirstResponder()
-		case is MonthInputTextField:
+		case self.monthTextField:
 			self.yearTextField.becomeFirstResponder()
-		case is YearInputTextField:
-			self.saveCard()
+		case self.yearTextField:
+			self.saveCreditCard()
 		default:
 			break
 		}

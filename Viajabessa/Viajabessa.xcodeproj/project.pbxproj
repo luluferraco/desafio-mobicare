@@ -42,12 +42,6 @@
 		3DF9465020ABAF7000D44D1C /* AddCardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9464A20ABAF6F00D44D1C /* AddCardInteractor.swift */; };
 		3DF9465120ABAF7000D44D1C /* AddCardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9464B20ABAF7000D44D1C /* AddCardPresenter.swift */; };
 		3DF9465420ABAF9500D44D1C /* AddCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF9465320ABAF9500D44D1C /* AddCard.storyboard */; };
-		3DF9465B20ABB46000D44D1C /* ListTransactionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9465520ABB46000D44D1C /* ListTransactionsPresenter.swift */; };
-		3DF9465C20ABB46000D44D1C /* ListTransactionsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9465620ABB46000D44D1C /* ListTransactionsWorker.swift */; };
-		3DF9465D20ABB46000D44D1C /* ListTransactionsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9465720ABB46000D44D1C /* ListTransactionsRouter.swift */; };
-		3DF9465E20ABB46000D44D1C /* ListTransactionsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9465820ABB46000D44D1C /* ListTransactionsModels.swift */; };
-		3DF9465F20ABB46000D44D1C /* ListTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9465920ABB46000D44D1C /* ListTransactionsViewController.swift */; };
-		3DF9466020ABB46000D44D1C /* ListTransactionsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9465A20ABB46000D44D1C /* ListTransactionsInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,12 +82,6 @@
 		3DF9464A20ABAF6F00D44D1C /* AddCardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardInteractor.swift; sourceTree = "<group>"; };
 		3DF9464B20ABAF7000D44D1C /* AddCardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardPresenter.swift; sourceTree = "<group>"; };
 		3DF9465320ABAF9500D44D1C /* AddCard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddCard.storyboard; sourceTree = "<group>"; };
-		3DF9465520ABB46000D44D1C /* ListTransactionsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTransactionsPresenter.swift; sourceTree = "<group>"; };
-		3DF9465620ABB46000D44D1C /* ListTransactionsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTransactionsWorker.swift; sourceTree = "<group>"; };
-		3DF9465720ABB46000D44D1C /* ListTransactionsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTransactionsRouter.swift; sourceTree = "<group>"; };
-		3DF9465820ABB46000D44D1C /* ListTransactionsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTransactionsModels.swift; sourceTree = "<group>"; };
-		3DF9465920ABB46000D44D1C /* ListTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTransactionsViewController.swift; sourceTree = "<group>"; };
-		3DF9465A20ABB46000D44D1C /* ListTransactionsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTransactionsInteractor.swift; sourceTree = "<group>"; };
 		85A63C8E31906E4CA65FCD86 /* Pods-Viajabessa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Viajabessa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Viajabessa/Pods-Viajabessa.debug.xcconfig"; sourceTree = "<group>"; };
 		D00245114F5F02EBA75F6D86 /* Pods_Viajabessa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Viajabessa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -187,7 +175,6 @@
 		3D9C10AD20A7F38400A3B7A7 /* Viajabessa */ = {
 			isa = PBXGroup;
 			children = (
-				3DF9466120ABB46900D44D1C /* ListTransactions */,
 				3DF9465220ABAF7A00D44D1C /* AddCard */,
 				3DDF39D320AA724D002A3607 /* BuyTravelPackage */,
 				3D2E44E220A8FE020090B046 /* ListTravelPackages */,
@@ -225,19 +212,6 @@
 				3DF9464720ABAF6F00D44D1C /* AddCardWorker.swift */,
 			);
 			path = AddCard;
-			sourceTree = "<group>";
-		};
-		3DF9466120ABB46900D44D1C /* ListTransactions */ = {
-			isa = PBXGroup;
-			children = (
-				3DF9465520ABB46000D44D1C /* ListTransactionsPresenter.swift */,
-				3DF9465620ABB46000D44D1C /* ListTransactionsWorker.swift */,
-				3DF9465720ABB46000D44D1C /* ListTransactionsRouter.swift */,
-				3DF9465820ABB46000D44D1C /* ListTransactionsModels.swift */,
-				3DF9465920ABB46000D44D1C /* ListTransactionsViewController.swift */,
-				3DF9465A20ABB46000D44D1C /* ListTransactionsInteractor.swift */,
-			);
-			path = ListTransactions;
 			sourceTree = "<group>";
 		};
 		C3AE4C10E10AB08C0F2F3736 /* Frameworks */ = {
@@ -397,29 +371,23 @@
 				3DDF39CE20AA7244002A3607 /* BuyTravelPackageInteractor.swift in Sources */,
 				3DF9464E20ABAF7000D44D1C /* AddCardRouter.swift in Sources */,
 				3DF9465120ABAF7000D44D1C /* AddCardPresenter.swift in Sources */,
-				3DF9465E20ABB46000D44D1C /* ListTransactionsModels.swift in Sources */,
 				3D2E44E620A8FE680090B046 /* ListTravelPackagesViewController.swift in Sources */,
 				3DDF39C220A975CF002A3607 /* CustomActIndicator.swift in Sources */,
 				3DDF39CD20AA7244002A3607 /* BuyTravelPackageViewController.swift in Sources */,
 				3D2E44EB20A900F80090B046 /* PackageTableViewCell.swift in Sources */,
 				3DF9464C20ABAF7000D44D1C /* AddCardViewController.swift in Sources */,
 				3DDF39CF20AA7244002A3607 /* BuyTravelPackageWorker.swift in Sources */,
-				3DF9466020ABB46000D44D1C /* ListTransactionsInteractor.swift in Sources */,
 				3D9C10AF20A7F38400A3B7A7 /* AppDelegate.swift in Sources */,
-				3DF9465D20ABB46000D44D1C /* ListTransactionsRouter.swift in Sources */,
-				3DF9465B20ABB46000D44D1C /* ListTransactionsPresenter.swift in Sources */,
 				3DF9465020ABAF7000D44D1C /* AddCardInteractor.swift in Sources */,
 				3DF9464F20ABAF7000D44D1C /* AddCardModels.swift in Sources */,
 				3DDF39B420A94B69002A3607 /* Transaction.swift in Sources */,
 				3DDF39D120AA7244002A3607 /* BuyTravelPackagePresenter.swift in Sources */,
 				3D2E44DE20A8FDF70090B046 /* ListTravelPackagesInteractor.swift in Sources */,
 				3D2E44E120A8FDF70090B046 /* ListTravelPackagesRouter.swift in Sources */,
-				3DF9465C20ABB46000D44D1C /* ListTransactionsWorker.swift in Sources */,
 				3DDF39BC20A9518F002A3607 /* DateFormatter+Codable.swift in Sources */,
 				3DDF39B820A94CEA002A3607 /* Card.swift in Sources */,
 				3D2E44ED20A940010090B046 /* HTTPRequestsWorker.swift in Sources */,
 				3DF9464D20ABAF7000D44D1C /* AddCardWorker.swift in Sources */,
-				3DF9465F20ABB46000D44D1C /* ListTransactionsViewController.swift in Sources */,
 				3D2E44E020A8FDF70090B046 /* ListTravelPackagesModels.swift in Sources */,
 				3DDF39C420A97B58002A3607 /* Double+Helpers.swift in Sources */,
 				3DDF39BA20A94DFA002A3607 /* PhoneInfo.swift in Sources */,
