@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import Reachability
 
 protocol ListTravelPackagesDisplayLogic: class {
 	func displayListOfPackages(_ viewModel: ListTravelPackages.ListTravelPackages.ViewModel)
@@ -66,13 +67,40 @@ class ListTravelPackagesViewController: UITableViewController, ListTravelPackage
 		
 		self.actIndicator = CustomActIndicator(frame: self.view.bounds)
 		
+		self.noPacksLabel = UILabel(frame: self.view.bounds)
+		self.noPacksLabel.text = "Ocorreu um erro inesperado, desculpe pelo transtorno."
+		self.noPacksLabel.numberOfLines = 0
+		self.noPacksLabel.textAlignment = .center
+		
+		self.disableRefreshIfConnected()
 		self.getTravelPackages()
+	}
+	
+	@IBOutlet weak var reloadButton: UIBarButtonItem!
+	
+	func disableRefreshIfConnected() {
+		let reachability = Reachability()
+		
+		reachability?.whenUnreachable = { _ in
+			self.reloadButton.isEnabled = false
+		}
+		
+		reachability?.whenReachable = { _ in
+			self.reloadButton.isEnabled = true
+		}
+		
+		do {
+			try reachability?.startNotifier()
+		} catch {
+			print("# Unable to start notifier")
+		}
 	}
 	
 	// MARK: List Travel Packages
 	
 	private var travelPackages: [ListTravelPackages.PackageInfo]! = []
 	private var actIndicator: CustomActIndicator!
+	private var noPacksLabel: UILabel!
 	
 	func getTravelPackages() {
 		self.actIndicator.show(on: self.view)
@@ -92,11 +120,13 @@ class ListTravelPackagesViewController: UITableViewController, ListTravelPackage
 			alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
 			
 			self.present(alert, animated: true, completion: nil)
-		} else {
+		}
+		
+		if viewModel.packagesInfo == nil || viewModel.packagesInfo?.isEmpty ?? false {
 			// Show no packages label
-			let noPacksLabel = UILabel(frame: self.view.bounds)
-			noPacksLabel.text = "Ocorreu um erro inesperado, desculpe pelo transtorno."
-			self.view.addSubview(noPacksLabel)
+			self.view.addSubview(self.noPacksLabel)
+		} else {
+			self.noPacksLabel.removeFromSuperview()
 		}
 	}
 	
@@ -119,6 +149,10 @@ class ListTravelPackagesViewController: UITableViewController, ListTravelPackage
 			
 			self.present(alert, animated: true, completion: nil)
 		}
+	}
+	
+	@IBAction func reloadList(_ sender: Any) {
+		self.getTravelPackages()
 	}
 }
 

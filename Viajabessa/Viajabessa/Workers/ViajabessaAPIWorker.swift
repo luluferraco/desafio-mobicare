@@ -55,11 +55,7 @@ class ViajabessaAPIWorker {
 		}
 	}
 	
-	private init() {
-		if self.canReachNetwork() {
-			self.getEndPoints()
-		}
-	}
+	private init() {}
 	
 	// MARK: Auxiliary methods
 	
@@ -72,6 +68,11 @@ class ViajabessaAPIWorker {
 	}
 	
 	private func getEndPoints(_ completion: ((ViajabessaAPIError?) -> Void)? = nil) {
+		guard self.canReachNetwork() else {
+			completion?(.NoConnection)
+			return
+		}
+		
 		self.httpRequestsWorker.getHTTP(at: self.apiURLString) { (endPoints: EndPoints?, error) in
 			if let endPoints = endPoints {
 				self.endPoints = endPoints
@@ -121,6 +122,11 @@ class ViajabessaAPIWorker {
 	private var imagePromises: [Promise<(travelPackage: TravelPackage, image: UIImage)>]!
 	
 	private func fetchTravelPackages(_ completion: @escaping ([TravelPackage]?, ViajabessaAPIError?) -> Void) {
+		guard self.canReachNetwork() else {
+			completion(nil, .NoConnection)
+			return
+		}
+		
 		if let packageEndPoint = self.endPoints?.packages {
 			self.httpRequestsWorker.getHTTP(at: self.apiURLString + packageEndPoint) { (travelPackages: [TravelPackage]?, error) in
 				if let travelPackages = travelPackages {

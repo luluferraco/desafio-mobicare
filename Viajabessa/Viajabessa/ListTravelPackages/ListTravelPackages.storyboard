@@ -68,7 +68,16 @@
                             <outlet property="delegate" destination="B0Y-u5-6XA" id="aPI-J4-s0U"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Pacotes" id="EAu-HH-NDs"/>
+                    <navigationItem key="navigationItem" title="Pacotes" id="EAu-HH-NDs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="mjD-lm-9xI">
+                            <connections>
+                                <action selector="reloadList:" destination="B0Y-u5-6XA" id="CaT-rc-OUb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="reloadButton" destination="mjD-lm-9xI" id="Lix-iC-8CB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="86r-po-Z2o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
